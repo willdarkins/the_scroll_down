@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../images/newspaper_1f4f0.png'
+import Search from './Search'
 
 const NavBarStyles = styled.div`
     background-color: var(--nav-bar);
@@ -32,6 +33,7 @@ function Navbar() {
                 <img src={logo} alt="Logo" />
                 <h1>The Scroll Down</h1>
             </div>
+            <Search />
         </NavBarStyles>
     )
 }
