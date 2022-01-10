@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import Navbar from './components/Navbar'
 
 const AppStyles = styled.div `
-  background-color: red;
 `
 
 function App() {
   return (
     <AppStyles>
-      <h1>Hello World!</h1>
+      <Navbar />
     </AppStyles>
   )
 }
