@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components';
 
-export default function App() {
+const AppStyles = styled.div`
+  background-color: red;
+`
+
+function App() {
   return (
-    <>
-     <h1>Is this working?</h1> 
-    </>
+    <AppStyles>
+      <h1>Hello, World</h1>
+    </AppStyles>
   )
 }
+
+export default App
