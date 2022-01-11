@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../images/newspaper_1f4f0.png'
-
-
+import { NavLink } from 'react-router-dom'
 
 const NavBarStyles = styled.div`
     margin: 0;
@@ -89,10 +87,10 @@ function Navbar() {
                     <button>Serach</button>
                 </div>
                 <ol>
-                    <li>Home</li>
-                    <li>Sign In</li>
-                    <li>Sign Up</li>
-                    <li>Saved News</li>
+                    <li><NavLink exact to='/' activeClassName='active-class'>Home</NavLink></li>
+                    <li><NavLink exact to='/signin' activeClassName='active-class'>Sign In</NavLink></li>
+                    <li><NavLink exact to='/signup' activeClassName='active-class'>Sign Up</NavLink></li>
+                    <li><NavLink exact to='/savednews' activeClassName='active-class'>Saved News</NavLink></li>
                 </ol>
                 <div className='menu-burger'>
                 </div>
