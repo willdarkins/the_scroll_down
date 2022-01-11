@@ -85,7 +85,7 @@ function Navbar() {
     return (
         <NavBarStyles>
             <div className='nav'>
-                <div className='icon'> <span>📰</span>The Scroll <span className='down'>Down</span></div>
+                <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
                     <input type={"serach"} placeholder='Search for News' />
                     <button>Serach</button>

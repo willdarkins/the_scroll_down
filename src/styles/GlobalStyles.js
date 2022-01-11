@@ -14,9 +14,13 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         list-style: none;
-        text-decoration: none;
+        text-decoration: none !important;
         font-family: 'Work Sans', sans-serif;
     }
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+
     body{
         background-color: var(--background)
     }
