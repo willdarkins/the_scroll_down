@@ -1,14 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import logo from '../images/newspaper_1f4f0.png'
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import { ButtonBase } from '@mui/material';
+
 
 
 const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    span{
+        color: var(--green);
+    }
+    .icon{
+        font-size: 28px;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+    }
     .nav{
         display: flex;
         width: 100%;
@@ -19,7 +27,7 @@ const NavBarStyles = styled.div`
         padding: 15px 30px;
     }
     button{
-        background-color: #4CAF50;
+        background-color: var(--green);
         border: none;
         border-radius: 20px;
         color: white;
@@ -75,8 +83,7 @@ function Navbar() {
     return (
         <NavBarStyles>
             <div className='nav'>
-                {/* <img src={logo} />  */}
-                <div className='icon'>The Scroll Down</div>
+                <div className='icon'>📰 The Scroll <span>Down</span></div>
                 <div className='search_box'>
                     <input type={"serach"} placeholder='Search for News' />
                     <button>Serach</button>
@@ -85,9 +92,10 @@ function Navbar() {
                     <li>Home</li>
                     <li>Sign In</li>
                     <li>Sign Up</li>
-                    <li>About</li>
                     <li>Saved News</li>
                 </ol>
+                <div className='menu-burger'>
+                </div>
             </div>
         </NavBarStyles>
     )
