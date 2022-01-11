@@ -8,7 +8,7 @@ const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    span{
+    .down{
         color: var(--green);
     }
     .icon{
@@ -27,7 +27,7 @@ const NavBarStyles = styled.div`
         padding: 15px 30px;
     }
     button{
-        background-color: var(--green);
+        background-color: var(--blue);
         border: none;
         border-radius: 20px;
         color: white;
@@ -35,7 +35,7 @@ const NavBarStyles = styled.div`
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-size: 13px;
         margin-left: .3rem;
         /* margin: 4px 2px; */
         cursor: pointer;
@@ -83,7 +83,7 @@ function Navbar() {
     return (
         <NavBarStyles>
             <div className='nav'>
-                <div className='icon'>📰 The Scroll <span>Down</span></div>
+                <div className='icon'> <span>📰</span> The Scroll <span className='down'>Down</span></div>
                 <div className='search_box'>
                     <input type={"serach"} placeholder='Search for News' />
                     <button>Serach</button>
