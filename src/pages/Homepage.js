@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
+import { NavLink } from 'react-router-dom'
 
 const HomeStyles = styled.div`
   height: 80vh;
@@ -26,6 +27,9 @@ const HomeStyles = styled.div`
         letter-spacing: -4px;
         color: var(--font-dark);
         text-decoration: underline;
+        .period{
+            color: var(--blue);
+        }
     }
     p{
         padding: 15px 0;
@@ -81,12 +85,12 @@ function Homepage() {
                 <div className='icon'>
                     <img src={newspaperIcon} />
                 </div>
-                <h1>Your News. Your Choice. Simple.</h1>
+                <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
                 <p>
                     The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
                     <br /><br />Sign up and get informed.
                 </p>
-                <button>Sign Up!</button>
+                <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
             </div>
         </HomeStyles>
     )

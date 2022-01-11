@@ -54,6 +54,9 @@ const NavBarStyles = styled.div`
         color: white;
         cursor: pointer;
     }
+    a{
+            text-decoration: none;
+        }
     .nav ol li:hover{
         background: white;
         color: var(--nav-bar);
