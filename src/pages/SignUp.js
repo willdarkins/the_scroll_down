@@ -1,23 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Grid, Paper, Typography, TextField } from '@material-ui/core'
 import Button from '@mui/material/Button';
 import signupicon from '../images/signup_icon.png'
 
-const FormStyles = styled.div`
-    .formstyles{
-        margin: .5rem auto;
-    }
-    .btn{
-        margin-top: 2rem;
-    }
-`
-    
-
-
 function SignUp() {
     const paperStyle = { padding: '30px 20px', width: 400, margin: '4.5rem auto' }
-    const headerStyle = { margin: '0' }
+    const headerStyle = { margin: '0 1rem' }
     return (
         <Grid>
             <Paper elevation={20} style={paperStyle}>
@@ -70,22 +58,6 @@ function SignUp() {
                                     type='submit' color='primary' variant='contained' fullWidth>Sign Up!</Button>
                             </Grid>
                         </Grid>
-
-
-
-                    {/* <Grid item spacing={5}>
-                    <TextField fullWidth label ='First Name' placeholder='Enter your first name'/>
-                    </Grid>
-                    <Grid item spacing={3}>
-                    <TextField fullWidth label ='Last Name' placeholder='Enter your last name'/>
-                    </Grid>
-                    <Grid item spacing={3}>
-                    <TextField fullWidth label ='Email' placeholder='Enter your email address'/>
-                    </Grid>
-                    <Grid item spacing={3}>
-                    <TextField fullWidth label ='Password' placeholder='Enter a password'/>
-                    </Grid>
-                    <Button className='btn' type='submit' variant='contained' color='primary'>Sign Up!</Button> */}
                 </form>
             </Paper>
         </Grid>
