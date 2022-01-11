@@ -1,14 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components'
 import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import SavedNews from './pages/SavedNews'
-
-const AppStyles = styled.div`
-`
 
 function App() {
   return (

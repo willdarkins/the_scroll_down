@@ -6,6 +6,7 @@ const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
     .down{
         color: var(--green);
     }
@@ -53,10 +54,10 @@ const NavBarStyles = styled.div`
         padding: 5px 10px;
         color: white;
         cursor: pointer;
-    }
-    a{
+        a{
             text-decoration: none;
         }
+    }
     .nav ol li:hover{
         background: white;
         color: var(--nav-bar);

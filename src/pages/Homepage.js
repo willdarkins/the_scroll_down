@@ -48,6 +48,7 @@ const HomeStyles = styled.div`
         margin: 15px auto 0px auto;
         padding: 15px 0;
         font-size: 25px;
+        font-weight: bolder;
         cursor: pointer;
         box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
     }
@@ -83,7 +84,7 @@ function Homepage() {
         <HomeStyles>
             <div className='login-welcome'>
                 <div className='icon'>
-                    <img src={newspaperIcon} />
+                    <img src={newspaperIcon} alt='newspaper'/>
                 </div>
                 <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
                 <p>
