@@ -84,11 +84,12 @@ const HomeStyles = styled.div`
 `
 
 function Homepage() {
+
     return (
         <HomeStyles>
             <div className='login-welcome'>
                 <div className='icon'>
-                    <img src={newspaperIcon} alt='newspaper'/>
+                    <img src={newspaperIcon} alt='newspaper' />
                 </div>
                 <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
                 <p>
