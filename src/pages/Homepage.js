@@ -51,6 +51,10 @@ const HomeStyles = styled.div`
         font-weight: bolder;
         cursor: pointer;
         box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+        a:visited { 
+        text-decoration: none; 
+        color: white; 
+    }
     }
     button{
         cursor: pointer;

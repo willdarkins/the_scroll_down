@@ -6,7 +6,6 @@ const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
     .down{
         color: var(--green);
     }
@@ -54,13 +53,10 @@ const NavBarStyles = styled.div`
         padding: 5px 10px;
         color: white;
         cursor: pointer;
-        a{
-            text-decoration: none;
-        }
     }
-    .nav ol li:hover{
-        background: white;
-        color: var(--nav-bar);
+    a:visited { 
+        text-decoration: none; 
+        color: white; 
     }
     .nav .search_box{
         display: flex;
@@ -91,10 +87,10 @@ function Navbar() {
                     <button>Serach</button>
                 </div>
                 <ol>
-                    <li><NavLink exact to='/' activeClassName='active-class'>Home</NavLink></li>
-                    <li><NavLink exact to='/signin' activeClassName='active-class'>Sign In</NavLink></li>
-                    <li><NavLink exact to='/signup' activeClassName='active-class'>Sign Up</NavLink></li>
-                    <li><NavLink exact to='/savednews' activeClassName='active-class'>Saved News</NavLink></li>
+                    <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
+                    <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
+                    <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
+                    <li><NavLink exact to='/savednews' activeClassName='current'>Saved News</NavLink></li>
                 </ol>
                 <div className='menu-burger'>
                 </div>

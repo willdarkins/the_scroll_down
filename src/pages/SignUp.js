@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import signupicon from '../images/signup_icon.png'
 
 function SignUp() {
-    const paperStyle = { padding: '30px 20px', width: 400, margin: '4.5rem auto' }
+    const paperStyle = { padding: '30px 20px', width: 460, margin: '4.5rem auto' }
     const headerStyle = { margin: '0 1rem' }
     return (
         <Grid>
