@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 
 const SavedStyles = styled.div`
     padding: 30px 170px;
@@ -20,6 +21,15 @@ const SavedStyles = styled.div`
             height: 100%;
             text-decoration: none;
             color: var(--font-dark);
+            .descriptor{
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                padding: 0px 25px 0 25px 0;
+            }
+            img{
+                width: 100%;
+            }
         }
     }
 
@@ -32,7 +42,10 @@ function SavedNews() {
             <h1 className='search-header'>Search Term Will Go Here</h1>
             <div className='news-grid'>
                 <div className='news-card'>
+                    <img src={NewsPicSample} />
+                    <div className='descriptor'>
 
+                    </div>
                 </div>
             </div>
         </SavedStyles>
