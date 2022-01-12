@@ -21,14 +21,47 @@ const SavedStyles = styled.div`
             height: 100%;
             text-decoration: none;
             color: var(--font-dark);
+            img{
+                width: 100%;
+            }
             .descriptor{
                 margin-top: 2rem;
                 display: flex;
                 flex-direction: column;
                 padding: 0px 25px 0 25px 0;
             }
-            img{
-                width: 100%;
+            .source{
+                display: flex;
+                align-items: center;
+                span{
+                    display: inline;
+                    padding: 5px 6px;
+                    border-radius: 4px;
+                    background: #d192a5;
+                    font-size: 10px;
+                    color: #5f0924;
+                }
+                p{
+                    padding-left: 10px;
+                    font-size: 10px;
+                    font-weight: 500;
+                }
+            }
+            .title-info{
+                h1{
+                    font-size: 20px;
+                    letter-spacing: -.5px;
+                    line-height: 1rem;
+                    padding: 10px 0;
+                    font-weight: 700;
+                    text-decoration: underline;
+                }
+                p{
+                    font-size: 12px;
+                    line-height: 1.5rem;
+                    color: #3b3b3b;
+                    padding-bottom: 28px;
+                }
             }
         }
     }
@@ -41,10 +74,49 @@ function SavedNews() {
         <SavedStyles>
             <h1 className='search-header'>Search Term Will Go Here</h1>
             <div className='news-grid'>
+                
                 <div className='news-card'>
-                    <img src={NewsPicSample} />
+                    <img src={NewsPicSample} alt='news'/>
                     <div className='descriptor'>
+                        <h4 className='source'></h4>
+                        <span>New York Times</span>
+                        <p>1.11.2021</p>
+                    </div>
+                    <div className='title-info'>
+                        <h1>Example News Title</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                        facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
+                    </div>
+                </div>
 
+                <div className='news-card'>
+                    <img src={NewsPicSample} alt='news'/>
+                    <div className='descriptor'>
+                        <h4 className='source'></h4>
+                        <span>New York Times</span>
+                        <p>1.11.2021</p>
+                    </div>
+                    <div className='title-info'>
+                        <h1>Example News Title</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                        facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
+                    </div>
+                </div>
+
+                <div className='news-card'>
+                    <img src={NewsPicSample} alt='news'/>
+                    <div className='descriptor'>
+                        <h4 className='source'></h4>
+                        <span>New York Times</span>
+                        <p>1.11.2021</p>
+                    </div>
+                    <div className='title-info'>
+                        <h1>Example News Title</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                        facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
                     </div>
                 </div>
             </div>
