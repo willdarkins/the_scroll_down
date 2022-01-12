@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Paper, Typography, TextField } from '@material-ui/core'
 import signinicon from '../images/log-in.png'
 
 function SignIn() {
@@ -14,6 +14,15 @@ function SignIn() {
             <h2 style={headerStyle}>Sign In</h2>
             <Typography variant='caption'>Provide your credentials, log in, save stories and get informed</Typography>
           </Grid>
+          <form>
+            <Grid container spacing={2}>
+
+              <Grid xs={12} item>
+              <TextField label='Username' placeholder='Enter Username' variant='outlined' fullWidth required/>
+              </Grid>
+              
+            </Grid>
+          </form>
         </Paper>
       </Grid>
     </>
