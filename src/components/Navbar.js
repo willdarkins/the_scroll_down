@@ -35,12 +35,7 @@ const NavBarStyles = styled.div`
         display: inline-block;
         font-size: 13px;
         margin-left: .3rem;
-        /* margin: 4px 2px; */
         cursor: pointer;
-        transition-duration: 0.4s;
-        button:hover{
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-        }
     }
     .nav ol{
         display: flex;
