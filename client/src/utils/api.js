@@ -1,8 +1,41 @@
 // This should hopefully get the logged in user info
 
 export const getMe =(token) => {
-    return fetch ('/api/users/me', {}
-}
+    return fetch ('/api/users/me', {
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`,
+        },
+    });
+};
+
+export const createUser = (userData => {
+    return fetch ('/api/users', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        body: JSON.stringify(userData),
+    });
+});
+
+
+export const loginUser = (userData) => {
+    return fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',},
+            body: JSON.stringify(userData),
+    });
+};
+
+// Saving and removing articles should be here :^)
+
+export const saveArticle = (articleData, token) => {
+    return fetch ('/api/users', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', authorization: `Bearer ${token}`,},
+        body: JSON.stringify(articleData),
+    });
+};
 
 
 // Searching with the News API
