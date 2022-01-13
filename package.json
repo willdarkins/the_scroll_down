@@ -26,11 +26,17 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.3"
   },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "install": "cd server && npm i && cd .. && npm i",
+    "develop": "concurrently \"cd server && npm run watch\" \"npm start\"",
+    "seed": "cd server && node seeders/seeds.js"
   },
   "eslintConfig": {
     "extends": [
