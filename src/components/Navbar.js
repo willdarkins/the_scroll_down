@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import InputBase from '@mui/material/InputBase';
 
 const NavBarStyles = styled.div`
     margin: 0;
@@ -78,8 +79,13 @@ function Navbar() {
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
-                    <input type={"serach"} placeholder='Search for News' />
-                    <button>Serach</button>
+                    {/* <input type={"serach"} placeholder='Search for News' /> */}
+                    <InputBase
+                        sx={{ ml: 1, flex: 1 }}
+                        placeholder="Search for News"
+                        inputProps={{ 'aria-label': 'search google maps' }}
+                    />
+                    <button>Search</button>
                 </div>
                 <ol>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
