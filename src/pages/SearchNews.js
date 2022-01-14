@@ -1,3 +1,4 @@
+
 import React from 'react'
 import styled from 'styled-components'
 import NewsPicSample from '../images/NewsPic_Sample.jpeg'
@@ -186,3 +187,4 @@ function SavedNews() {
 }
 
 export default SavedNews
+
