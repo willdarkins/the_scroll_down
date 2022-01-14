@@ -46,8 +46,8 @@ function App() {
   const [savedNews, setSavedNews] = useState([]);
   return (
     <ApolloProvider client={client}>
-      <>
-        <Router>
+      <Router>
+        <>
           <newsStoreContext.Provider value={{ newsInput, setNewsInput, savedNews, setSavedNews }}>
             <Navbar />
             <Switch>
@@ -58,10 +58,10 @@ function App() {
               <Route exact path='/searchnews' component={SearchNews} />
             </Switch>
           </newsStoreContext.Provider>
-        </Router>
-      </>
+        </>
+      </Router>
     </ApolloProvider>
-  )
+  );
 }
 
 export default App

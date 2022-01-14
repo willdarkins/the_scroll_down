@@ -4,9 +4,9 @@ import { NavLink, useHistory } from 'react-router-dom'
 import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
 
-import { searchNewsAPI } from '../utils/api'
-import { SAVE_STORY } from '../utils/mutations'
-import { useMutation } from '@apollo/client';
+//import { searchNewsAPI } from '../utils/api'
+//import { SAVE_STORY } from '../utils/mutations'
+//import { useMutation } from '@apollo/client';
 
 function Navbar() {
 

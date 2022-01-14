@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState  } from 'react'
 import { Grid, Paper, Typography, TextField } from '@material-ui/core'
 import Button from '@mui/material/Button';
 import signupicon from '../images/signup_icon.png'
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -10,14 +9,13 @@ import Auth from '../utils/auth';
 function SignUp() {
 
     const [userFormData, setUserFormData] = useState({
-        username: '',
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
     });
 
-    const [showAlert, setShowAlert] = useState(false);
-
-    const [addUser, { error }] = useMutation(ADD_USER);
+    const [addUser ] = useMutation(ADD_USER);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -38,7 +36,8 @@ function SignUp() {
         }
 
         setUserFormData({
-            username: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
         });
@@ -62,6 +61,7 @@ function SignUp() {
                             <TextField
                                 type='input'
                                 label='First Name'
+                                name="firstName"
                                 placeholder='First Name'
                                 variant='outlined'
                                 onChange={handleInputChange}
@@ -73,6 +73,7 @@ function SignUp() {
                             <TextField
                                 type='input'
                                 label='Last Name'
+                                name="lastName"
                                 placeholder='Last Name'
                                 variant='outlined'
                                 onChange={handleInputChange}
@@ -85,6 +86,7 @@ function SignUp() {
                                 type='input'
                                 label='Email'
                                 placeholder='Email'
+                                name="email"
                                 variant='outlined'
                                 onChange={handleInputChange}
                                 value={userFormData.email}
@@ -96,6 +98,7 @@ function SignUp() {
                                 type='input'
                                 label='Password'
                                 placeholder='Password'
+                                name="password"
                                 variant='outlined'
                                 onChange={handleInputChange}
                                 value={userFormData.password}
@@ -103,16 +106,7 @@ function SignUp() {
                                 required />
                         </Grid>
                         <Grid xs={12} item>
-                            <Button
-                                disabled={
-                                    !(
-                                        userFormData.firstName &&
-                                        userFormData.lastName &&
-                                        userFormData.email &&
-                                        userFormData.password
-                                    )
-                                }
-                                type='submit' color='primary' variant='contained' fullWidth>Sign Up!</Button>
+                            <Button type='submit' color='primary' variant='contained' fullWidth>Sign Up!</Button>
                         </Grid>
                     </Grid>
                 </form>

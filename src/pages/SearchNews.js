@@ -5,7 +5,7 @@ import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 import { newsStoreContext } from '../utils/store'
 
 function SearchNews() {
-    const {newsInput, setNewsInput} = useContext(newsStoreContext)
+    const {newsInput } = useContext(newsStoreContext)
     return (
         <SavedStyles>
             <h1 className='search-header'>Results for: {newsInput}</h1>
