@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
         --font-dark: #151515; 
         --green: #0ea84c;
         --blue: #3F00FF;
+        --red: #C41E3A;
     }
 
     *{

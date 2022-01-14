@@ -3,6 +3,25 @@ import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
 
+function Homepage() {
+
+    return (
+        <HomeStyles>
+            <div className='login-welcome'>
+                <div className='icon'>
+                    <img src={newspaperIcon} alt='newspaper' />
+                </div>
+                <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
+                <p>
+                    The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
+                    <br /><br />Sign up and get informed.
+                </p>
+                <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
+            </div>
+        </HomeStyles>
+    )
+}
+
 const HomeStyles = styled.div`
   height: 80vh;
   display: flex;
@@ -82,24 +101,5 @@ const HomeStyles = styled.div`
     }
 }  
 `
-
-function Homepage() {
-
-    return (
-        <HomeStyles>
-            <div className='login-welcome'>
-                <div className='icon'>
-                    <img src={newspaperIcon} alt='newspaper' />
-                </div>
-                <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
-                <p>
-                    The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
-                    <br /><br />Sign up and get informed.
-                </p>
-                <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
-            </div>
-        </HomeStyles>
-    )
-}
 
 export default Homepage

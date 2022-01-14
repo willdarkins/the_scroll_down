@@ -192,6 +192,4 @@ const NavBarStyles = styled.div`
     }
 
 `
-
-
 export default Navbar

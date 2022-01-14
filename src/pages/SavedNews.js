@@ -2,6 +2,83 @@ import React from 'react'
 import styled from 'styled-components'
 import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 
+function SavedNews() {
+    return (
+        <SavedStyles>
+            <h1 className='search-header'>Search Term Will Go Here</h1>
+            <div className='news-grid'>
+                <div className='news-card'>
+                    <div className='news-content'>
+                        <img src={NewsPicSample} alt='news' />
+                        <div className='descriptor'>
+                            <h4 className='source'>
+                                <span>New York Times</span>
+                                <p>1.11.2021</p>
+                            </h4>
+                        </div>
+                        <div className='title-info'>
+                            <h1>Example News Title</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                                facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
+                            <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='news-card'>
+                    <img src={NewsPicSample} alt='news' />
+                    <div className='descriptor'>
+                        <h4 className='source'>
+                            <span>New York Times</span>
+                            <p>1.11.2021</p>
+                        </h4>
+                    </div>
+                    <div className='title-info'>
+                        <h1>Example News Title</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
+                        <button class="learn-more">
+                            <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">Delete</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div className='news-card'>
+                    <img src={NewsPicSample} alt='news' />
+                    <div className='descriptor'>
+                        <h4 className='source'>
+                            <span>New York Times</span>
+                            <p>1.11.2021</p>
+                        </h4>
+                    </div>
+                    <div className='title-info'>
+                        <h1>Example News Title</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
+                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
+                        <button class="learn-more">
+                            <span class="circle" aria-hidden="true">
+                                <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </SavedStyles>
+    )
+}
+
 const SavedStyles = styled.div`
     padding: 30px 170px;
     .search-header{
@@ -85,7 +162,7 @@ const SavedStyles = styled.div`
                     margin: 0;
                     width: 3rem;
                     height: 3rem;
-                    background: var(--blue);
+                    background: var(--red);
                     border-radius: 1.625rem;
                 .icon {
                     transition: (all, 0.45s, cubic-bezier(0.65,0,.076,1));
@@ -123,7 +200,7 @@ const SavedStyles = styled.div`
       bottom: 0;
       padding: 0.75rem 0;
       margin: 0 0 0 1.85rem;
-      color: var(--blue);
+      color: var(--red);
       font-weight: 700;
       line-height: 1.6;
       text-align: center;
@@ -151,82 +228,5 @@ const SavedStyles = styled.div`
 
 
 `
-
-function SavedNews() {
-    return (
-        <SavedStyles>
-            <h1 className='search-header'>Search Term Will Go Here</h1>
-            <div className='news-grid'>
-                <div className='news-card'>
-                    <div className='news-content'>
-                        <img src={NewsPicSample} alt='news' />
-                        <div className='descriptor'>
-                            <h4 className='source'>
-                                <span>New York Times</span>
-                                <p>1.11.2021</p>
-                            </h4>
-                        </div>
-                        <div className='title-info'>
-                            <h1>Example News Title</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                                facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                            <button class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                    <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">Save</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='news-card'>
-                    <img src={NewsPicSample} alt='news' />
-                    <div className='descriptor'>
-                        <h4 className='source'>
-                            <span>New York Times</span>
-                            <p>1.11.2021</p>
-                        </h4>
-                    </div>
-                    <div className='title-info'>
-                        <h1>Example News Title</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button class="learn-more">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <span class="button-text">Save</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div className='news-card'>
-                    <img src={NewsPicSample} alt='news' />
-                    <div className='descriptor'>
-                        <h4 className='source'>
-                            <span>New York Times</span>
-                            <p>1.11.2021</p>
-                        </h4>
-                    </div>
-                    <div className='title-info'>
-                        <h1>Example News Title</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button class="learn-more">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
-                            </span>
-                            <span class="button-text">Save</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </SavedStyles>
-    )
-}
 
 export default SavedNews
