@@ -1,7 +1,8 @@
 
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import NewsPicSample from '../images/NewsPic_Sample.jpeg'
+import { newsStoreContext } from '../utils/store'
 
 const SavedStyles = styled.div`
     padding: 30px 170px;
@@ -149,14 +150,13 @@ const SavedStyles = styled.div`
         }
     }
 }
-
-
 `
 
-function SavedNews() {
+function SearchNews() {
+    const {newsInput, setNewsInput} = useContext(newsStoreContext)
     return (
         <SavedStyles>
-            <h1 className='search-header'>Search Term Will Go Here</h1>
+            <h1 className='search-header'>Results for: {newsInput}</h1>
             <div className='news-grid'>
                 <div className='news-card'>
                     <div className='news-content'>
@@ -186,5 +186,5 @@ function SavedNews() {
     )
 }
 
-export default SavedNews
+export default SearchNews
 
