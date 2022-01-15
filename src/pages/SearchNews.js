@@ -43,6 +43,7 @@ const SavedStyles = styled.div`
     .search-header{
         letter-spacing: -1px;
         font-size: 40px;
+        color: var(--font-dark);
     }
     .news-grid{
         display: grid;
@@ -53,7 +54,7 @@ const SavedStyles = styled.div`
             padding: 1rem;
             min-width: 300px;
             margin: auto;
-            background: white;
+            background: var(--dark-card);
             box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
             height: 100%;
             text-decoration: none;
@@ -96,7 +97,7 @@ const SavedStyles = styled.div`
                 p{
                     font-size: 12px;
                     line-height: 1.5rem;
-                    color: #3b3b3b;
+                    color: var(--font-dark);
                     padding-bottom: 1rem;
                 }
                 button {
