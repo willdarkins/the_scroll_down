@@ -2,6 +2,10 @@ const { Schema } = require('mongoose');
 
 // subdocument schema for users to save stories
 const storySchema = new Schema({
+    storyId: {
+        type: String,
+        required: true
+    },
     source: {
         type: String,
         required: true
