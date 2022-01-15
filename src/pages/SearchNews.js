@@ -1,11 +1,39 @@
 
-import React, {useContext} from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 import { newsStoreContext } from '../utils/store'
+import { useMutation } from '@apollo/client';
+import { SAVE_STORY } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 function SearchNews() {
-    const {newsInput } = useContext(newsStoreContext)
+    const { newsInput } = useContext(newsStoreContext)
+    const [searchedStories, setSearchedStories] = useState([]);
+    const [saveStory] = useMutation(SAVE_STORY);
+
+    // create function to handle saving a story to our database
+    const handleSaveStory = async (storyId) => {
+        // find the story in `searchedStories` state by the matching storyId
+        const storyToSave = searchedStories.find((story) => story.storyId === storyId);
+
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const { data } = await saveStory({
+                variables: { storyData: { ...storyToSave } },
+            });
+            console.log(data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
     return (
         <SavedStyles>
             <h1 className='search-header'>Results for: {newsInput}</h1>
