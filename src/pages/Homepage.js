@@ -56,6 +56,7 @@ const HomeStyles = styled.div`
         width: 50%;
         margin: auto;
         font-size: 16px;
+        color: var(--font-dark);
     }
     button{
         width: 300px;

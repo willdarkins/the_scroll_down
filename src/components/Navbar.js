@@ -1,115 +1,37 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components'
 import { NavLink, useHistory } from 'react-router-dom'
 import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
-
-//import { searchNewsAPI } from '../utils/api'
-//import { SAVE_STORY } from '../utils/mutations'
-//import { useMutation } from '@apollo/client';
+import { useState } from 'react';
+import DarkModeSwitch from './DarkModeSwitch'
 
 function Navbar() {
-
     // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState('');
     //   // create state for holding our search field data
     const { setNewsInput } = useContext(newsStoreContext)
+    const history = useHistory();
 
-
-    //   //useMutation() Hook to execute the SAVE_BOOK mutation - this is in place of saveBook() function imported from API file
-    //   const [savestory, { error }] = useMutation(SAVE_STORY);
-
-    //   // create state to hold saved MongoDB values***** NEED TO FIGURE OUT HOW WE WILL USE MONGODB ID WITH CALLBACK FUNCTION
-    //   const [_id, setSavedBookIds] = useState(getSavedBookIds());
-
-    //   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
-    //   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-    //   useEffect(() => {
-    //     return () => saveBookIds(savedBookIds);
-    //   });
-
-    //   // create method to search for books and set state on form submit
-    //   const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
-
-    //     if (!searchInput) {
-    //       return false;
-    //     }
-
-    //     try {
-    //       const response = await searchNewsAPI(searchInput);
-
-    //       if (!response.ok) {
-    //         throw new Error('something went wrong!');
-    //       }
-
-    //       const { items } = await response.json();
-
-    //       const newsData = items.map((news) => ({
-    //         news: news.id,
-    //         source: book.volumeInfo.authors || ['No author to display'],
-    //         title: book.volumeInfo.title,
-    //         description: book.volumeInfo.description,
-    //         link: asdfasdf,
-    //         image: book.volumeInfo.imageLinks?.thumbnail || '',
-    //         publishDate: asdfasdf
-    //       }));
-
-    //       setSearchedBooks(bookData);
-    //       setSearchInput('');
-    //     } catch (err) {
-    //       console.error(err);
-    //     }
-    //   };
-
-    //   // create function to handle saving a book to our database
-    //   const handleSaveBook = async (bookId) => {
-    //     // find the book in `searchedBooks` state by the matching id
-    //     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-
-    //     // get token
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    //     if (!token) {
-    //       return false;
-    //     }
-
-    //     try {
-    //       await saveBook({variables: bookToSave});
-
-    //       if (!response.ok) {
-    //         throw new Error('something went wrong!');
-    //       }
-
-    //       // if book successfully saves to user's account, save book id to state
-    //       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
-    //     } catch (err) {
-    //       console.error(err);
-    //     }
-    //   };
-    
-        const history = useHistory();
-
-        const handleOnSubmit = () => {
-            setNewsInput(searchedNews)
-            history.push(`/searchnews`);
-       
+    const handleOnSubmit = () => {
+        setNewsInput(searchedNews)
+        history.push(`/searchnews`);
     };
     return (
         <NavBarStyles>
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
-                    {/* <input type={"serach"} placeholder='Search for News' /> */}
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="Search for News"
-                        inputProps={{ 'aria-label': 'search google maps' }}
+                        inputProps={{ 'aria-label': 'search for news' }}
                         onChange={(e) => setSearchedNews(e.target.value)}
                     />
                     <button onClick={handleOnSubmit}>Search</button>
+                    <DarkModeSwitch />
                 </div>
-                <ol>
+                <ol className='container'>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
                     <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
                     <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
@@ -156,16 +78,20 @@ const NavBarStyles = styled.div`
         font-size: 13px;
         margin-left: .3rem;
         cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        transition: all 2s ease;
+    }
+    button:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
     .nav ol{
         display: flex;
-        margin: auto 0;
     }
     .nav ol li{
         margin: 0 2px;
         font-size: 20px;
         letter-spacing: 1px;
-        padding: 5px 10px;
+        padding: 7px 10px;
         color: white;
         cursor: pointer;
     }
@@ -189,6 +115,29 @@ const NavBarStyles = styled.div`
         font-size: 20px;
         width: 350px;
         border-radius: 20px;
+    }
+    .container {
+        overflow: hidden;
+        text-align:center;
+    }
+    .container a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .container a::before {
+        content:'';
+        width:0%;
+        height:.5px;
+        display:block;
+        background-color: #fff;
+        margin-bottom:5px;
+    }
+    .container a:hover::before {
+        width: 100%;
+        transition: all .4s;
     }
 
 `
