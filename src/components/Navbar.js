@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components'
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import Switch from '@mui/material/Switch';
 import { NavLink, useHistory } from 'react-router-dom'
 import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
@@ -87,31 +89,37 @@ function Navbar() {
     //       console.error(err);
     //     }
     //   };
-    
-        const history = useHistory();
 
-        const handleOnSubmit = () => {
-            setNewsInput(searchedNews)
-            history.push(`/searchnews`);
-       
+    const history = useHistory();
+
+    const handleOnSubmit = () => {
+        setNewsInput(searchedNews)
+        history.push(`/searchnews`);
+
     };
     return (
         <NavBarStyles>
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
-                    {/* <input type={"serach"} placeholder='Search for News' /> */}
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="Search for News"
-                        inputProps={{ 'aria-label': 'search google maps' }}
+                        inputProps={{ 'aria-label': 'search for news' }}
                         onChange={(e) => setSearchedNews(e.target.value)}
                     />
                     <button onClick={handleOnSubmit}>Search</button>
-                </div>
-                <div className='light-dark-mode'>
-                    <div className='left-content'></div>
-                    <div className='right-content'></div>
+
+                    <div className='light-dark-mode'>
+                        <div className='left-content'>
+                            <DarkModeIcon />
+                        </div>
+                        <div className='right-content'>
+                            <Switch
+                                size='small'
+                            />
+                        </div>
+                    </div>
                 </div>
                 <ol>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
@@ -163,13 +171,12 @@ const NavBarStyles = styled.div`
     }
     .nav ol{
         display: flex;
-        margin: auto 0;
     }
     .nav ol li{
         margin: 0 2px;
         font-size: 20px;
         letter-spacing: 1px;
-        padding: 5px 10px;
+        padding: 7px 10px;
         color: white;
         cursor: pointer;
     }
@@ -193,6 +200,24 @@ const NavBarStyles = styled.div`
         font-size: 20px;
         width: 350px;
         border-radius: 20px;
+    }
+    .light-dark-mode{
+        margin-left: 1rem;
+        margin-top: .3rem;
+        background: #004b69;
+        border-radius: 25%;
+        width: 4.5rem;
+        height: 1.8rem;
+        /* z-index: 15; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            color: white;
+        }
     }
 
 `
