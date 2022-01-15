@@ -31,7 +31,7 @@ function Navbar() {
                     <button onClick={handleOnSubmit}>Search</button>
                     <DarkModeSwitch />
                 </div>
-                <ol>
+                <ol className='container'>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
                     <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
                     <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
@@ -115,6 +115,29 @@ const NavBarStyles = styled.div`
         font-size: 20px;
         width: 350px;
         border-radius: 20px;
+    }
+    .container {
+        overflow: hidden;
+        text-align:center;
+    }
+    .container a {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .container a::before {
+        content:'';
+        width:0%;
+        height:.5px;
+        display:block;
+        background-color: #fff;
+        margin-bottom:5px;
+    }
+    .container a:hover::before {
+        width: 100%;
+        transition: all .4s;
     }
 
 `
