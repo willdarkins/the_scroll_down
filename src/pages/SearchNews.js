@@ -43,6 +43,7 @@ const SavedStyles = styled.div`
     .search-header{
         letter-spacing: -1px;
         font-size: 40px;
+        color: var(--font-dark);
     }
     .news-grid{
         display: grid;
@@ -96,7 +97,7 @@ const SavedStyles = styled.div`
                 p{
                     font-size: 12px;
                     line-height: 1.5rem;
-                    color: #3b3b3b;
+                    color: var(--font-dark);
                     padding-bottom: 1rem;
                 }
                 button {
