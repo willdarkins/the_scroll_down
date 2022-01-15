@@ -59,7 +59,6 @@ const DarkStyles = styled.div`
         border-radius: 25%;
         width: 4.5rem;
         height: 1.8rem;
-        /* z-index: 15; */
         display: flex;
         align-items: center;
         justify-content: center;
