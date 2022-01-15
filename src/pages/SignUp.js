@@ -8,9 +8,9 @@ function SignUp() {
     const paperStyle = { padding: '30px 20px', width: 460, margin: '4.5rem auto' }
     const headerStyle = { margin: '.3 1rem' }
     return (
-        <>
+        <SignInStyles>
         <Grid>
-            <Paper elevation={20} style={paperStyle}>
+            <Paper elevation={20} style={paperStyle} className={'paper'}>
                 <Grid align='center'>
                     <img src={signupicon} alt='add user' />
                     <h2 style={headerStyle}>Sign Up</h2>
@@ -68,8 +68,23 @@ function SignUp() {
                 </form>
             </Paper>
         </Grid>
-        </>
+        </SignInStyles>
     )
 }
+
+const SignInStyles = styled.div`
+.paper{
+        color: var(--font-dark);
+        background: var(--dark-card);
+        box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 1.2rem;
+        box-shadow: 5px 10px 18px #888888;
+        cursor: pointer;
+    }
+    .paper:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+`
 
 export default SignUp

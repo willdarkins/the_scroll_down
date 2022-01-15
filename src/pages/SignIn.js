@@ -56,6 +56,7 @@ const SignInStyles = styled.div`
         box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.2);
         transition: 0.3s;
         padding: 1.2rem;
+        box-shadow: 5px 10px 18px #888888;
         cursor: pointer;
     }
     .paper:hover{
