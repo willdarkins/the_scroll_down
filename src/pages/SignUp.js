@@ -2,11 +2,13 @@ import React from 'react'
 import { Grid, Paper, Typography, TextField } from '@material-ui/core'
 import Button from '@mui/material/Button';
 import signupicon from '../images/signup_icon.png'
+import styled from 'styled-components';
 
 function SignUp() {
     const paperStyle = { padding: '30px 20px', width: 460, margin: '4.5rem auto' }
     const headerStyle = { margin: '.3 1rem' }
     return (
+        <>
         <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
@@ -25,7 +27,8 @@ function SignUp() {
                                 placeholder='First Name'
                                 variant='outlined'
                                 fullWidth
-                                required />
+                                required
+                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
                         </Grid>
                         <Grid xs={12} sm={6} item>
                             <TextField
@@ -34,7 +37,8 @@ function SignUp() {
                                 placeholder='Last Name'
                                 variant='outlined'
                                 fullWidth
-                                required />
+                                required
+                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
                         </Grid>
                         <Grid xs={12} item>
                             <TextField
@@ -43,7 +47,8 @@ function SignUp() {
                                 placeholder='Email'
                                 variant='outlined'
                                 fullWidth
-                                required />
+                                required
+                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
                         </Grid>
                         <Grid xs={12} item>
                             <TextField
@@ -52,7 +57,8 @@ function SignUp() {
                                 placeholder='Password'
                                 variant='outlined'
                                 fullWidth
-                                required />
+                                required
+                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
                         </Grid>
                         <Grid xs={12} item>
                             <Button
@@ -62,6 +68,7 @@ function SignUp() {
                 </form>
             </Paper>
         </Grid>
+        </>
     )
 }
 
