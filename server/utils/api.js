@@ -41,5 +41,5 @@ export const saveArticle = (articleData, token) => {
 // Searching with the News API
 // hard coded to sort by popularity, but also added a date that will hopefully narrow down by day the query was made
 export const searchNewsAPI = (query) => {
-    return fetch (`https://newsapi.org/v2/everything?q=${query}&${Date}&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`)
+    return fetch (`https://newsapi.org/v2/everything?q=${query}&${Date}&sortBy=popularity&apiKey=f9db500b9b424a9ba1944f60c7c7cedc`)
 }

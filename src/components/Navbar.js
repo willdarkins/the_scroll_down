@@ -109,6 +109,10 @@ function Navbar() {
                     />
                     <button onClick={handleOnSubmit}>Search</button>
                 </div>
+                <div className='light-dark-mode'>
+                    <div className='left-content'></div>
+                    <div className='right-content'></div>
+                </div>
                 <ol>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
                     <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
