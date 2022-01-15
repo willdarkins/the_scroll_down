@@ -6,7 +6,6 @@ import { newsStoreContext } from '../utils/store'
 import { useState } from 'react';
 import DarkModeSwitch from './DarkModeSwitch'
 
-
 function Navbar() {
     // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState('');
@@ -79,6 +78,11 @@ const NavBarStyles = styled.div`
         font-size: 13px;
         margin-left: .3rem;
         cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        transition: all 2s ease;
+    }
+        button:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
     .nav ol{
         display: flex;
