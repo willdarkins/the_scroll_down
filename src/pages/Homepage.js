@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
+import Popup from '../components/Popup'
 
 function Homepage() {
 
     return (
         <HomeStyles>
+            <Popup />
             <div className='login-welcome'>
                 <div className='icon'>
                     <img src={newspaperIcon} alt='newspaper' />
