@@ -42,11 +42,11 @@ function Popup() {
         <Fade in={open}>
           <Box sx={style}>
               <img src={success} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
-            <Typography id="transition-modal-title" variant="h6" component="h2" style={{textAlign:'center'}}>
-              Text in a modal
+            <Typography id="transition-modal-title" variant="h4" component="h2" style={{textAlign:'center'}}>
+              You are Signed In!
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }} style={{textAlign:'center'}}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              Click the "Save" button to read articles later
             </Typography>
           </Box>
         </Fade>
