@@ -90,7 +90,6 @@ const HomeStyles = styled.div`
         right: -20px;
         transition: 0.5s;
     }
-
     button:hover{
         padding-right: 24px;
         padding-left:8px;
