@@ -6,7 +6,6 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import success from '../images/success.png'
-import create from 'zustand/react';
 
 const style = {
   position: 'absolute',
@@ -20,8 +19,6 @@ const style = {
   p: 4,
   color: 'var(--font-dark)',
 };
-
-const ConfirmDialogStore = create
 
 function Popup() {
   const [open, setOpen] = React.useState(false);
