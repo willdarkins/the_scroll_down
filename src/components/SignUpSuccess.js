@@ -38,7 +38,7 @@ function SignUpSuccess() {
         BackdropProps={{timeout: 500}}
       >
         <Fade in={open}>
-          <Box sx={style}>
+          <Box sx={style} xs={12} sm={6}>
               <img src={thumbsup} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
             <Typography id="transition-modal-title" sx={{ mt: 2 }} variant="h4" component="h2" style={{textAlign:'center'}}>
               You are Signed Up!

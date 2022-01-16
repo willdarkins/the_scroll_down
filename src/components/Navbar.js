@@ -5,6 +5,8 @@ import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
 import { useState } from 'react';
 import DarkModeSwitch from './DarkModeSwitch'
+import MenuIcon from '@mui/icons-material/Menu';
+import { ButtonBase } from '@mui/material';
 
 function Navbar() {
     // // create state for holding returned news api data
@@ -49,14 +51,13 @@ function Navbar() {
         // }
         history.push(`/searchnews`);
     };
-    
+
     return (
         <NavBarStyles>
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
                     <InputBase
-                        sx={{ ml: 1, flex: 1 }}
                         placeholder="Search for News"
                         inputProps={{ 'aria-label': 'search for news' }}
                         onChange={(e) => setSearchedNews(e.target.value)}
@@ -70,7 +71,10 @@ function Navbar() {
                     <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
                     <li><NavLink exact to='/savednews' activeClassName='current'>Saved News</NavLink></li>
                 </ol>
-                <div className='menu-burger'>
+                <div className='bar'>
+                    <ButtonBase className='button-base'>
+                        <MenuIcon />
+                    </ButtonBase>
                 </div>
             </div>
         </NavBarStyles>
@@ -149,6 +153,15 @@ const NavBarStyles = styled.div`
         width: 350px;
         border-radius: 20px;
     }
+    .nav .bar{
+        position: relative;
+        margin: auto;
+        display: none;
+       
+    }
+    .nav .bar .button-base{
+        position: absolute;
+    }
     .container {
         overflow: hidden;
         text-align:center;
@@ -172,6 +185,45 @@ const NavBarStyles = styled.div`
         width: 100%;
         transition: all .4s;
     }
+    .button-base{
+        padding: .2rem;
+        border-radius: 10px;
+    }
+    @media screen and (max-width: 1250px) {
+        .nav{
+            display: block;
+            padding: 0;
+        }
+        .nav .icon{
+            display: inline-block;
+            padding: 15px 30px;
+            }
+        .nav .search_box{
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            }
+        .nav ol{
+            display: flex;
+            flex-direction: column;
+        }
+        .nav ol li{
+            text-align: center;
+        }
+        .nav ol li a{
+            display: block;
+            font-size: 25px;
+            padding: 25px;
+        }
+        .nav .bar{
+            display: block;
+            position: absolute;
+            top: 2rem;
+            right: 5rem;
+            cursor: pointer;
+        }  
+    }   
 
 `
 export default Navbar

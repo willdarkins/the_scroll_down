@@ -8,7 +8,6 @@ function Homepage() {
 
     return (
         <HomeStyles>
-            <SignUpSuccess />
             <div className='login-welcome'>
                 <div className='icon'>
                     <img src={newspaperIcon} alt='newspaper' />
