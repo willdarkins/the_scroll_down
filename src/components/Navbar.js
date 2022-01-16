@@ -219,8 +219,8 @@ const NavBarStyles = styled.div`
         .nav .bar{
             display: block;
             position: absolute;
-            top: 2rem;
-            right: 5rem;
+            top: 4.3rem;
+            right: 20rem;
             cursor: pointer;
         }  
     }   
