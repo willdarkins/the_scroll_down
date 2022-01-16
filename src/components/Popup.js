@@ -6,7 +6,6 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import success from '../images/success.png'
-import styled from 'styled-components'
 
 const style = {
   position: 'absolute',
@@ -15,12 +14,11 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'var(--dark-card)',
-  border: '2px solid #000',
+  border: 'none',
   boxShadow: 24,
   p: 4,
-  color: 'var(--font-dark)'
+  color: 'var(--font-dark)',
 };
-
 
 function Popup() {
   const [open, setOpen] = React.useState(false);
@@ -38,16 +36,16 @@ function Popup() {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500,
+        timeout: 500
         }}
       >
         <Fade in={open}>
           <Box sx={style}>
-              <img src={success} alt='Sign In icon'/>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
+              <img src={success} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
+            <Typography id="transition-modal-title" variant="h6" component="h2" style={{textAlign:'center'}}>
               Text in a modal
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+            <Typography id="transition-modal-description" sx={{ mt: 2 }} style={{textAlign:'center'}}>
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography>
           </Box>
