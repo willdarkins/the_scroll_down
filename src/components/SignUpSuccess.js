@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import success from '../images/success.png'
+import thumbsup from '../images/signup-success.png'
 
 const style = {
   position: 'absolute',
@@ -20,7 +20,7 @@ const style = {
   color: 'var(--font-dark)',
 };
 
-function Popup() {
+function SignUpSuccess() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,18 +35,16 @@ function Popup() {
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
-        BackdropProps={{
-        timeout: 500
-        }}
+        BackdropProps={{timeout: 500}}
       >
         <Fade in={open}>
           <Box sx={style}>
-              <img src={success} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
-            <Typography id="transition-modal-title" variant="h4" component="h2" style={{textAlign:'center'}}>
-              You are Signed In!
+              <img src={thumbsup} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
+            <Typography id="transition-modal-title" sx={{ mt: 2 }} variant="h4" component="h2" style={{textAlign:'center'}}>
+              You are Signed Up!
             </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }} style={{textAlign:'center'}}>
-              Click the "Save" button to read articles later
+            <Typography id="transition-modal-description" sx={{ mt: 1 }} style={{textAlign:'center'}}>
+              Enjoy reading the news you want, and saving articles for later
             </Typography>
           </Box>
         </Fade>
@@ -55,4 +53,4 @@ function Popup() {
   );
 }
 
-export default Popup
+export default SignUpSuccess
