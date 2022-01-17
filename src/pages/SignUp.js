@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import styled from 'styled-components';
+import SignUpSuccess from '../components/SignUpSuccess'
 
 function SignUp() {
 
@@ -42,6 +43,7 @@ function SignUp() {
             email: '',
             password: '',
         });
+        <SignUpSuccess />
     };
 
     const paperStyle = { padding: '30px 20px', width: 460, margin: '4.5rem auto' }

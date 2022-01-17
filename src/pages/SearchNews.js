@@ -1,11 +1,11 @@
 
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 import { newsStoreContext } from '../utils/store'
 import { useMutation } from '@apollo/client';
 import { SAVE_STORY } from '../utils/mutations';
 import Auth from '../utils/auth';
+
 
 function SearchNews() {
     const { newsInput } = useContext(newsStoreContext)
@@ -34,33 +34,74 @@ function SearchNews() {
         }
     };
 
+    // async function handleOnSubmit() {
+    //     setNewsInput(searchedNews)
+    //     if (!searchedNews) {
+    //         return false;
+    //     }
+
+    //     try {
+    //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${searchedNews}&lang=en`, {
+    //             "method": "GET",
+    //             "headers": {
+    //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
+    //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
+    //             }
+    //         })
+
+    //         if (!response.ok) {
+    //             throw new Error('something went wrong!');
+    //         }
+
+    //         const { articles } = await response.json();
+    //         console.log(articles);
+    //         const newsData = articles.map((story) => ({
+    //             storyId: story._id,
+    //             source: story.clean_url,
+    //             title: story.title,
+    //             description: story.summary,
+    //             link: story.link,
+    //             image: story.media,
+    //             publishDate: story.published_date
+    //         }));
+    //         setSearchedStories(newsData);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    //     history.push(`/searchnews`);
+    // };
     return (
         <SavedStyles>
             <h1 className='search-header'>Results for: {newsInput}</h1>
             <div className='news-grid'>
-                <div className='news-card'>
-                    <div className='news-content'>
-                        <img src={NewsPicSample} alt='news' />
-                        <div className='descriptor'>
-                            <h4 className='source'>
-                                <span>New York Times</span>
-                                <p>1.11.2021</p>
-                            </h4>
+                {searchedStories.map((story) => {
+                    return (
+                        <div key={story.storyId} className='news-card'>
+                            <div className='news-content'>
+                                <img src={story.image} alt='news' />
+                                <div className='descriptor'>
+                                    <h4 className='source'>
+                                        <span>{story.source}</span>
+                                        <p>{story.publishDate}</p>
+                                    </h4>
+                                </div>
+                                <div className='title-info'>
+                                    <h1>{story.title}</h1>
+                                    <p>{story.description}</p>
+                                    <button 
+                                    class="learn-more"
+                                    onClick={() => handleSaveStory(story.storyId)}
+                                    >
+                                        <span class="circle" aria-hidden="true">
+                                            <span class="icon arrow"></span>
+                                        </span>
+                                        <span class="button-text">Save</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div className='title-info'>
-                            <h1>Example News Title</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                                facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                            <button class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                    <span class="icon arrow"></span>
-                                </span>
-                                <span class="button-text">Save</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    )
+                })}
             </div>
         </SavedStyles>
     )

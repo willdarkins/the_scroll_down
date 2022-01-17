@@ -44,13 +44,14 @@ const client = new ApolloClient({
 
 function App() {
   const [newsInput, setNewsInput] = useState('');
-  
+  const [newsResults, setnewsResults] = useState([])
+
   //const [savedNews, setSavedNews] = useState([]);
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          <newsStoreContext.Provider value={{ newsInput, setNewsInput }}>
+          <newsStoreContext.Provider value={{ newsInput, setNewsInput }, {newsResults, setnewsResults}}>
             <Navbar />
             <Switch>
               <Route exact path='/' component={Homepage} />

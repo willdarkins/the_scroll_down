@@ -11,24 +11,26 @@ import { ButtonBase } from '@mui/material';
 function Navbar() {
     // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState('');
+    const { newsInput, setnewsResults } = useContext(newsStoreContext)
+    const [searchedStories, setSearchedStories] = useState([]);
     //   // create state for holding our search field data
-    const { setNewsInput } = useContext(newsStoreContext)
     const history = useHistory();
 
-    const handleOnSubmit = () => {
-        setNewsInput(searchedNews)
-        if (!searchedNews) {
+
+     async function handleOnSubmit() {
+        if (!{newsInput}) {
             return false;
         }
 
         try {
-            const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${searchedNews}&lang=en`, {
+            const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "free-news.p.rapidapi.com",
                     "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
                 }
             })
+            console.log(newsInput)
 
             if (!response.ok) {
                 throw new Error('something went wrong!');
@@ -45,7 +47,7 @@ function Navbar() {
                 image: story.media,
                 publishDate: story.published_date
             }));
-            setSearchedStories(newsData);
+            setnewsResults(newsData);
         } catch (err) {
             console.error(err);
         }
@@ -65,7 +67,7 @@ function Navbar() {
                     />
                     <button onClick={handleOnSubmit}>Search</button>
                     <DarkModeSwitch />
-                    <label for='check' className='bar'>
+                    <label htmlFor='check' className='bar'>
                         <ButtonBase className='button-base' >
                             <MenuIcon />
                         </ButtonBase>
