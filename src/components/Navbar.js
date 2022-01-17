@@ -11,7 +11,6 @@ import { ButtonBase } from '@mui/material';
 function Navbar() {
     // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState('');
-    const [navToggle, setNavToggle] = useState(false);
     //   // create state for holding our search field data
     const { setNewsInput } = useContext(newsStoreContext)
     const history = useHistory();
@@ -55,7 +54,7 @@ function Navbar() {
 
     return (
         <NavBarStyles>
-            <input type={'checkbox'} id='check'></input>
+            {/* <input type={'checkbox'} id='check'></input> */}
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
@@ -185,9 +184,6 @@ const NavBarStyles = styled.div`
         padding: .2rem;
         border-radius: 10px;
         margin-left: 38rem;
-    }
-    input[type="checkbox"]{
-
     }
     @media screen and (max-width: 1250px) { 
         .nav{
