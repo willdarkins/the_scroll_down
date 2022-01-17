@@ -49,7 +49,7 @@ function SignUp() {
     return (
         <SignInStyles>
         <Grid>
-            <Paper elevation={20} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
+            <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
                 <Grid align='center'>
                     <img src={signupicon} alt='add user' />
                     <h2 style={headerStyle}>Sign Up</h2>

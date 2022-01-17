@@ -21,11 +21,11 @@ function SavedNews() {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
                                 facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                            <button class="learn-more">
-                                <span class="circle" aria-hidden="true">
-                                    <span class="icon arrow"></span>
+                            <button className="learn-more">
+                                <span className="circle" aria-hidden="true">
+                                    <span className="icon arrow"></span>
                                 </span>
-                                <span class="button-text">Delete</span>
+                                <span className="button-text">Delete</span>
                             </button>
                         </div>
                     </div>
@@ -44,11 +44,11 @@ function SavedNews() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
                             facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button class="learn-more">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
+                        <button className="learn-more">
+                            <span className="circle" aria-hidden="true">
+                                <span className="icon arrow"></span>
                             </span>
-                            <span class="button-text">Delete</span>
+                            <span className="button-text">Delete</span>
                         </button>
                     </div>
                 </div>
@@ -66,11 +66,11 @@ function SavedNews() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
                             facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button class="learn-more">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
+                        <button className="learn-more">
+                            <span className="circle" aria-hidden="true">
+                                <span className="icon arrow"></span>
                             </span>
-                            <span class="button-text">Delete</span>
+                            <span className="button-text">Delete</span>
                         </button>
                     </div>
                 </div>
@@ -90,10 +90,10 @@ const SavedStyles = styled.div`
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 2rem;
-        padding: 40px 0;
+        padding: 20px 0;
         .news-card{
             padding: 1rem;
-            min-width: 300px;
+            min-width: 250px;
             margin: auto;
             background: var(--dark-card);
             box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -223,6 +223,63 @@ const SavedStyles = styled.div`
     }
   }
             }
+        }
+    }
+}
+@media screen and (max-width: 1220px){
+    .search-header{
+        font-size: 35px;
+    }
+    .news-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 900px){
+    .news-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .search-header{
+        font-size: 28px;
+    } 
+}
+@media screen and (max-width: 768px){
+    padding: 30px 150px;
+    .news-grid{
+        grid-template-columns: repeat(1);
+        grid-gap: 2rem;
+    }
+    .search-header{
+        font-size: 20px;
+    } 
+}
+@media screen and (max-width: 660px){
+    padding: 30px 110px;
+}
+@media screen and (max-width: 475px){
+    padding: 30px 90px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 440px){
+    padding: 30px 70px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 400px){
+    padding: 30px 50px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 381px){
+    padding: 30px 10px;
+    .news-card{
+        width: 50px;
+        
+        img{
+            width: 20%;
         }
     }
 }

@@ -161,18 +161,14 @@ const NavBarStyles = styled.div`
         text-align: center;
         text-decoration: none;
         font-size: 18px;
+        border-bottom: 3px solid transparent;
+        transition: all .4s ease-in-out;
     }
-    .container a::before {
-        content:'';
-        width:0%;
-        height:.5px;
-        display:block;
-        background-color: #fff;
-        margin-bottom:5px;
+    .container a:hover{
+        border-bottom: 3px solid var(--green);
     }
-    .container a:hover::before {
-        width: 100%;
-        transition: all .4s;
+    .container a:active{
+        border-bottom: 3px solid var(--green);
     }
     .fa-bars{
         display: none;
