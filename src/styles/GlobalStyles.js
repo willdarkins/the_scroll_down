@@ -45,6 +45,11 @@ const GlobalStyles = createGlobalStyle`
     body{
         background-color: var(--background)
     }
+    .nav-toggle{
+        transform: translateX(0);
+        z-index: 20;
+    }
+
 `
 
 export default GlobalStyles
