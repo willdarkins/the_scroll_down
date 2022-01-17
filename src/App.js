@@ -44,6 +44,7 @@ const client = new ApolloClient({
 
 function App() {
   const [newsInput, setNewsInput] = useState('');
+  
   //const [savedNews, setSavedNews] = useState([]);
   return (
     <ApolloProvider client={client}>

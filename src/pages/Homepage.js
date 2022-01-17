@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
+import SignUpSuccess from '../components/SignUpSuccess'
 
 function Homepage() {
 
@@ -90,7 +91,6 @@ const HomeStyles = styled.div`
         right: -20px;
         transition: 0.5s;
     }
-
     button:hover{
         padding-right: 24px;
         padding-left:8px;

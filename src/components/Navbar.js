@@ -5,10 +5,13 @@ import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
 import { useState } from 'react';
 import DarkModeSwitch from './DarkModeSwitch'
+import MenuIcon from '@mui/icons-material/Menu';
+import { ButtonBase } from '@mui/material';
 
 function Navbar() {
     // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState('');
+    const [navToggle, setNavToggle] = useState(false);
     //   // create state for holding our search field data
     const { setNewsInput } = useContext(newsStoreContext)
     const history = useHistory();
@@ -49,20 +52,25 @@ function Navbar() {
         }
         history.push(`/searchnews`);
     };
-    
+
     return (
         <NavBarStyles>
+            <input type={'checkbox'} id='check'></input>
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
                     <InputBase
-                        sx={{ ml: 1, flex: 1 }}
                         placeholder="Search for News"
                         inputProps={{ 'aria-label': 'search for news' }}
                         onChange={(e) => setSearchedNews(e.target.value)}
                     />
                     <button onClick={handleOnSubmit}>Search</button>
                     <DarkModeSwitch />
+                    <label for='check' className='bar'>
+                        <ButtonBase className='button-base' >
+                            <MenuIcon />
+                        </ButtonBase>
+                    </label>
                 </div>
                 <ol className='container'>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
@@ -70,8 +78,6 @@ function Navbar() {
                     <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
                     <li><NavLink exact to='/savednews' activeClassName='current'>Saved News</NavLink></li>
                 </ol>
-                <div className='menu-burger'>
-                </div>
             </div>
         </NavBarStyles>
     )
@@ -81,6 +87,7 @@ const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all .5s ease-in-out;
     .down{
         color: var(--green);
     }
@@ -149,7 +156,7 @@ const NavBarStyles = styled.div`
         width: 350px;
         border-radius: 20px;
     }
-    .container {
+    .nav-toggle {
         overflow: hidden;
         text-align:center;
     }
@@ -172,6 +179,50 @@ const NavBarStyles = styled.div`
         width: 100%;
         transition: all .4s;
     }
+    .button-base{
+        position: absolute;
+        display: none;
+        padding: .2rem;
+        border-radius: 10px;
+        margin-left: 38rem;
+    }
+    input[type="checkbox"]{
+
+    }
+    @media screen and (max-width: 1250px) { 
+        .nav{
+            display: block;
+            padding: 0;
+        }
+        .nav .icon{
+            display: inline-block;
+            padding: 15px 30px;
+            }
+        .nav .search_box{
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            }
+        .nav ol{
+            display: flex;
+            flex-direction: column;
+        }
+        .nav ol li{
+            text-align: center;
+        }
+        .nav ol li a{
+            display: block;
+            font-size: 25px;
+            padding: 25px;
+        }
+        .search_box .button-base{
+            display: block;
+            position: absolute;
+            cursor: pointer;
+        }
+
+    }   
 
 `
 export default Navbar
