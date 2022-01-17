@@ -8,7 +8,6 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function SignIn() {
-  const paperStyles = { padding: 20, width: 460, margin: '4.5rem auto' }
   const headerStyle = { margin: '.3  1rem' }
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login] = useMutation(LOGIN_USER);
@@ -44,7 +43,7 @@ function SignIn() {
   return (
     <SignInStyles>
       <Grid>
-        <Paper elevation={10} style={paperStyles} className={'paper'}>
+        <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
           <Grid align='center'>
             <img src={signinicon} alt='Sign In icon' />
             <h2 style={headerStyle}>Sign In</h2>
@@ -101,6 +100,17 @@ const SignInStyles = styled.div`
     .paper:hover{
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
+@media screen and (max-width: 768px){
+  .paper{
+    width: 400px;
+  }
+@media screen and (max-width: 430px){
+  .paper{
+    width: 200px;
+  }
+} 
+  
+}
 `
 
 export default SignIn
