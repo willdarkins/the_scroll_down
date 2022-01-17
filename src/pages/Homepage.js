@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
-import SignUpSuccess from '../components/SignUpSuccess'
 
 function Homepage() {
 
