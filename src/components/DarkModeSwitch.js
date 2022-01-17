@@ -55,7 +55,6 @@ const DarkStyles = styled.div`
 .light-dark-mode{
         margin-left: 1rem;
         margin-top: .3rem;
-        background: #004b69;
         border-radius: 25%;
         width: 4.5rem;
         height: 1.8rem;
@@ -69,6 +68,11 @@ const DarkStyles = styled.div`
             color: white;
         }
     }
+@media screen and (max-width: 320px){
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background: transparent;
+}
 `
 
 export default DarkModeSwitch
