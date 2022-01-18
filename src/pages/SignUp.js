@@ -45,23 +45,20 @@ function SignUp() {
         });
         <SignUpSuccess />
     };
-
-    const paperStyle = { padding: '30px 20px', width: 460, margin: '4.5rem auto' }
     const headerStyle = { margin: '.3 1rem' }
     return (
         <SignInStyles>
         <Grid>
-            <Paper elevation={20} style={paperStyle} className={'paper'}>
+            <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
                 <Grid align='center'>
                     <img src={signupicon} alt='add user' />
                     <h2 style={headerStyle}>Sign Up</h2>
                     <Typography variant='caption'>Fill out the form, become a member and start saving news you care about</Typography>
                 </Grid>
                 <form onSubmit={handleFormSubmit}>
-
                     <Grid container spacing={2}>
-                        <Grid xs={12} item></Grid>
-                        <Grid xs={12} sm={6} item>
+                        <Grid item></Grid>
+                        <Grid xs={12} item>
                             <TextField
                                 type='input'
                                 label='First Name'
@@ -74,7 +71,7 @@ function SignUp() {
                                 required
                                 InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
                         </Grid>
-                        <Grid xs={12} sm={6} item>
+                        <Grid xs={12} item>
                             <TextField
                                 type='input'
                                 label='Last Name'

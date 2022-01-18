@@ -5,72 +5,73 @@ import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
 import { useState } from 'react';
 import DarkModeSwitch from './DarkModeSwitch'
-import MenuIcon from '@mui/icons-material/Menu';
-import { ButtonBase } from '@mui/material';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Navbar() {
-    // // create state for holding returned news api data
-    const [searchedNews, setSearchedNews] = useState('');
-    const { newsInput, setnewsResults } = useContext(newsStoreContext)
-    const [searchedStories, setSearchedStories] = useState([]);
-    //   // create state for holding our search field data
+function Navbar(props) {
+    // // // create state for holding returned news api data
+    // const [searchedNews, setSearchedNews] = useState('');
+    // const { newsInput, setnewsResults } = useContext(newsStoreContext)
+    // const [searchedStories, setSearchedStories] = useState([]);
+    // //   // create state for holding our search field data
     const history = useHistory();
 
 
-     async function handleOnSubmit() {
-        if (!{newsInput}) {
-            return false;
-        }
+    async function handleOnSubmit() {
+        
+    //     if (!{ newsInput }) {
+    //         return false;
+    //     }
 
-        try {
-            const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "free-news.p.rapidapi.com",
-                    "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
-                }
-            })
-            console.log(newsInput)
+    //     try {
+    //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
+    //             "method": "GET",
+    //             "headers": {
+    //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
+    //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
+    //             }
+    //         })
+    //         console.log(newsInput)
 
-            if (!response.ok) {
-                throw new Error('something went wrong!');
-            }
+    //         if (!response.ok) {
+    //             throw new Error('something went wrong!');
+    //         }
 
-            const { articles } = await response.json();
-            console.log(articles);
-            const newsData = articles.map((story) => ({
-                storyId: story._id,
-                source: story.clean_url,
-                title: story.title,
-                description: story.summary,
-                link: story.link,
-                image: story.media,
-                publishDate: story.published_date
-            }));
-            setnewsResults(newsData);
-        } catch (err) {
-            console.error(err);
-        }
+    //         const { articles } = await response.json();
+    //         console.log(articles);
+    //         const newsData = articles.map((story) => ({
+    //             storyId: story._id,
+    //             source: story.clean_url,
+    //             title: story.title,
+    //             description: story.summary,
+    //             link: story.link,
+    //             image: story.media,
+    //             publishDate: story.published_date
+    //         }));
+    //         setnewsResults(newsData);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
         history.push(`/searchnews`);
     };
 
     return (
         <NavBarStyles>
-            {/* <input type={'checkbox'} id='check'></input> */}
+            <input type='checkbox' id='check'></input>
             <div className='nav'>
                 <div className='icon'> <NavLink exact to='/' activeClassName='active-class'>📰 The Scroll <span className='down'>Down</span></NavLink></div>
                 <div className='search_box'>
                     <InputBase
                         placeholder="Search for News"
                         inputProps={{ 'aria-label': 'search for news' }}
-                        onChange={(e) => setSearchedNews(e.target.value)}
+                        value={props.searchValue}
+                        onChange={(event)=> props.setSearchValue(event.target.value)}
                     />
-                    <button onClick={handleOnSubmit}>Search</button>
-                    <DarkModeSwitch />
+                        <button onClick={handleOnSubmit} >Search</button>
+                        <DarkModeSwitch className='dark-mode'/>
+                    
                     <label htmlFor='check' className='bar'>
-                        <ButtonBase className='button-base' >
-                            <MenuIcon />
-                        </ButtonBase>
+                        <FontAwesomeIcon id='bars' className='fa fa-bars' icon={faBars} size='2x' color='white' style={{ marginLeft: '1rem', marginTop: '.2rem' }} />
                     </label>
                 </div>
                 <ol className='container'>
@@ -88,7 +89,6 @@ const NavBarStyles = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .5s ease-in-out;
     .down{
         color: var(--green);
     }
@@ -102,7 +102,8 @@ const NavBarStyles = styled.div`
         display: flex;
         width: 100%;
         background-color: var(--nav-bar);
-        position: relative;
+        position: sticky;
+        top: 0;
         justify-content: space-between;
         text-align: center;
         padding: 15px 30px;
@@ -145,7 +146,6 @@ const NavBarStyles = styled.div`
         margin: auto 0;
         height: 35px;
         line-height: 35px;
-
     }
     .nav .search_box input{
         border: none;
@@ -157,37 +157,26 @@ const NavBarStyles = styled.div`
         width: 350px;
         border-radius: 20px;
     }
-    .nav-toggle {
-        overflow: hidden;
-        text-align:center;
-    }
     .container a {
         display: inline-block;
         color: white;
         text-align: center;
         text-decoration: none;
         font-size: 18px;
+        border-bottom: 3px solid transparent;
+        transition: all .9s ease-in-out;
     }
-    .container a::before {
-        content:'';
-        width:0%;
-        height:.5px;
-        display:block;
-        background-color: #fff;
-        margin-bottom:5px;
+    .container a:hover{
+        border-bottom: 3px solid var(--green);
     }
-    .container a:hover::before {
-        width: 100%;
-        transition: all .4s;
+    .container a:active{
+        border-bottom: 3px solid var(--green);
     }
-    .button-base{
-        position: absolute;
+    .fa-bars{
         display: none;
-        padding: .2rem;
-        border-radius: 10px;
-        margin-left: 38rem;
     }
-    @media screen and (max-width: 1250px) { 
+    
+    @media screen and (max-width: 1250px) {
         .nav{
             display: block;
             padding: 0;
@@ -205,6 +194,9 @@ const NavBarStyles = styled.div`
         .nav ol{
             display: flex;
             flex-direction: column;
+            height: 0;
+            visibility: hidden;
+            transition: .09s;
         }
         .nav ol li{
             text-align: center;
@@ -214,13 +206,71 @@ const NavBarStyles = styled.div`
             font-size: 25px;
             padding: 25px;
         }
-        .search_box .button-base{
+        .fa-bars{
             display: block;
-            position: absolute;
             cursor: pointer;
         }
-
-    }   
-
+        #check:checked ~ .nav .bar #bars{
+            display: block;
+        }
+        #check:checked ~ .nav ol{
+            visibility: visible;
+            height: 400px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .nav .search_box input{
+            width: 300px;
+        }
+    }
+    @media screen and (max-width: 600px){
+        .nav .search_box input{
+            width: 250px;
+        }
+         button{
+            padding: 5px 15px;
+        }
+    }
+    @media screen and (max-width: 480px){
+        .nav .search_box input{
+            width: 180px;
+        }
+        button{
+            padding: 5px 10px;
+        }
+    }
+    @media screen and (max-width: 413px) {
+        .nav .search_box input{
+            width: 150px;
+        }
+        button{
+            padding: 5px 10px;
+        } 
+    }
+    @media screen and (max-width: 391px){
+        .nav .search_box{
+            width: 100%;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            }
+        .nav .search_box input{
+            height: 40px;
+        }
+        button{
+            width: 50%;
+            padding: 10px 0;
+            margin-top: .5rem;
+        }
+        .bar{
+            padding-bottom: 110px;
+        }
+        .nav ol li a{
+        font-size: 20px;
+        }        
+    }
 `
 export default Navbar

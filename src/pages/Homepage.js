@@ -33,23 +33,23 @@ const HomeStyles = styled.div`
     .login-welcome{
     display: flex;
     flex-direction: column;
-    .icon{
-        margin: 0;
-    }
-    h1{
-        font-size: 80px;
-        width: 70%;
-        line-height: 1em;
-        margin: 10px auto;
-        margin-top: 0;
-        font-weight: 900;
-        letter-spacing: -4px;
-        color: var(--font-dark);
-        text-decoration: underline;
+        .icon{
+            margin: 0;
+        }
+        h1{
+            font-size: 80px;
+            width: 70%;
+            line-height: 1em;
+            margin: 10px auto;
+            margin-top: 0;
+            font-weight: 900;
+            letter-spacing: -4px;
+            color: var(--font-dark);
+            text-decoration: underline;
         .period{
             color: var(--blue);
+            }
         }
-    }
     p{
         padding: 15px 0;
         line-height: 1.3em;
@@ -74,7 +74,7 @@ const HomeStyles = styled.div`
         a:visited { 
         text-decoration: none; 
         color: white; 
-    }
+        }
     }
     button{
         cursor: pointer;
@@ -98,6 +98,71 @@ const HomeStyles = styled.div`
     button:hover:after {
         opacity: 1;
         right: 10px;
+    }
+    @media screen and (max-width: 1250px){
+        h1{
+            font-size: 70px;
+        }
+    }
+    @media screen and (max-width: 1075px){
+        h1{
+            font-size: 60px;
+        }
+    }
+    @media screen and (max-width: 900px){
+        h1{
+            font-size: 50px;
+        }
+    }
+    @media screen and (max-width: 768px){
+        p{
+            font-size: 13px;
+        }
+        button{
+            width: 250px;
+        }
+    }
+    @media screen and (max-width: 660px){
+        h1{
+            font-size: 46px;
+        }
+        button{
+            width: 230px;
+        }
+    }
+    @media screen and (max-width: 475px){
+        h1{
+            font-size: 40px;
+        }
+    }
+    @media screen and (max-width: 335px){
+        h1{
+            font-size: 35px;
+        }
+        button{
+            width: 200px;
+        }
+        p{
+            font-size: 11px;
+        }
+    }
+    @media screen and (max-width: 320px){
+        h1{
+            font-size: 35px;
+            
+        }
+        button{
+            width: 200px;
+        }
+        p{
+            font-size: 12px;
+        }
+        img{
+            display: none;
+        }
+        .login-welcome{
+            margin-top: .5%;
+        }
     }
 }  
 `
