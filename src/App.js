@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
@@ -43,24 +43,46 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [newsInput, setNewsInput] = useState('');
-  const [newsResults, setnewsResults] = useState([])
+  // const [newsInput, setNewsInput] = useState('');
+  // //const [savedNews, setSavedNews] = useState([]);
+  const [newsResults, setnewsResults] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
-  //const [savedNews, setSavedNews] = useState([]);
+  const getNewsRequest = async (searchValue) => {
+    const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${searchValue}&lang=en`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "free-news.p.rapidapi.com",
+        "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
+      }
+    })
+    
+    const responseJson = await response.json();
+    console.log(responseJson)
+    if (responseJson.articles) {
+      setnewsResults(responseJson.articles)
+    }
+  }
+
+  useEffect(() => {
+   return () => getNewsRequest(searchValue);
+  })
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          <newsStoreContext.Provider value={{ newsInput, setNewsInput }, {newsResults, setnewsResults}}>
-            <Navbar />
-            <Switch>
-              <Route exact path='/' component={Homepage} />
-              <Route exact path='/signin' component={SignIn} />
-              <Route exact path='/signup' component={SignUp} />
-              <Route exact path='/savednews' component={SavedNews} />
-              <Route exact path='/searchnews' component={SearchNews} />
-            </Switch>
-          </newsStoreContext.Provider>
+          {/* <newsStoreContext.Provider value={{ newsInput, setNewsInput }, {newsResults, setnewsResults}}> */}
+          <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
+          
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/signin' component={SignIn} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/savednews' component={SavedNews} />
+            <SearchNews newsResults={newsResults} searchValue={searchValue}/>
+          </Switch>
+          {/* </newsStoreContext.Provider> */}
         </>
       </Router>
     </ApolloProvider>

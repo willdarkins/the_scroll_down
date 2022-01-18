@@ -5,34 +5,39 @@ import { newsStoreContext } from '../utils/store'
 import { useMutation } from '@apollo/client';
 import { SAVE_STORY } from '../utils/mutations';
 import Auth from '../utils/auth';
+import NewsPic_Sample from '../images/NewsPic_Sample.jpeg'
 
+function SearchNews(props, {searchValue}) {
+    // let data = [];
+    // if (results.data) {
+    //     data = results.data.Search || [];
+    // }
+    // console.log(data)
+    // const { newsInput } = useContext(newsStoreContext)
+    // const [searchedStories, setSearchedStories] = useState([]);
+    // const [saveStory] = useMutation(SAVE_STORY);
 
-function SearchNews() {
-    const { newsInput } = useContext(newsStoreContext)
-    const [searchedStories, setSearchedStories] = useState([]);
-    const [saveStory] = useMutation(SAVE_STORY);
+    // // create function to handle saving a story to our database
+    // const handleSaveStory = async (storyId) => {
+    //     // find the story in `searchedStories` state by the matching storyId
+    //     const storyToSave = searchedStories.find((story) => story.storyId === storyId);
 
-    // create function to handle saving a story to our database
-    const handleSaveStory = async (storyId) => {
-        // find the story in `searchedStories` state by the matching storyId
-        const storyToSave = searchedStories.find((story) => story.storyId === storyId);
+    //     // get token
+    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-        // get token
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //     if (!token) {
+    //         return false;
+    //     }
 
-        if (!token) {
-            return false;
-        }
-
-        try {
-            const { data } = await saveStory({
-                variables: { storyData: { ...storyToSave } },
-            });
-            console.log(data);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         const { data } = await saveStory({
+    //             variables: { storyData: { ...storyToSave } },
+    //         });
+    //         console.log(data);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
     // async function handleOnSubmit() {
     //     setNewsInput(searchedNews)
@@ -72,30 +77,29 @@ function SearchNews() {
     // };
     return (
         <SavedStyles>
-            <h1 className='search-header'>Results for: {newsInput}</h1>
+            <h1 className='search-header'>Results for: {searchValue}</h1>
             <div className='news-grid'>
-                {searchedStories.map((story) => {
+                {props.newsResults.map((news) => {
                     return (
-                        <div key={story.storyId} className='news-card'>
+                        <div key={news._id} className='news-card'>
                             <div className='news-content'>
-                                <img src={story.image} alt='news' />
+                                <img src={news.media} alt='news' />
                                 <div className='descriptor'>
                                     <h4 className='source'>
-                                        <span>{story.source}</span>
-                                        <p>{story.publishDate}</p>
+                                        <span>{news.clean_url}</span>
+                                        <p>{news.published_date}</p>
                                     </h4>
                                 </div>
                                 <div className='title-info'>
-                                    <h1>{story.title}</h1>
-                                    <p>{story.description}</p>
-                                    <button 
-                                    class="learn-more"
-                                    onClick={() => handleSaveStory(story.storyId)}
+                                <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
+                                    <p>{news.summary}</p>
+                                    <button
+                                        className="learn-more"
                                     >
-                                        <span class="circle" aria-hidden="true">
-                                            <span class="icon arrow"></span>
+                                        <span className="circle" aria-hidden="true">
+                                            <span className="icon arrow"></span>
                                         </span>
-                                        <span class="button-text">Save</span>
+                                        <span className="button-text">Save</span>
                                     </button>
                                 </div>
                             </div>
@@ -108,7 +112,7 @@ function SearchNews() {
 }
 
 const SavedStyles = styled.div`
-    padding: 30px 170px;
+    padding: 30px 150px;
     .search-header{
         letter-spacing: -1px;
         font-size: 40px;
@@ -121,7 +125,7 @@ const SavedStyles = styled.div`
         padding: 40px 0;
         .news-card{
             padding: 1rem;
-            min-width: 300px;
+            min-width: 275px;
             margin: auto;
             background: var(--dark-card);
             box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -155,10 +159,18 @@ const SavedStyles = styled.div`
                 }
             }
             .title-info{
+                a{
+                        text-decoration: underline;
+                        color: var(--font-dark);
+                    }
+                    a:visited { 
+                        text-decoration: none; 
+                        color: var(--font-dark); 
+                    }
                 h1{
                     font-size: 20px;
                     letter-spacing: -.5px;
-                    line-height: 1rem;
+                    line-height: 1.3rem;
                     padding: 20px 0;
                     font-weight: 700;
                     text-decoration: underline;
@@ -253,6 +265,69 @@ const SavedStyles = styled.div`
             }
         }
     }
+}
+@media screen and (max-width: 1220px){
+    .search-header{
+        font-size: 35px;
+    }
+    .news-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 900px){
+    .news-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .search-header{
+        font-size: 28px;
+    } 
+}
+@media screen and (max-width: 768px){
+    padding: 30px 150px;
+    .news-grid{
+        grid-template-columns: repeat(1);
+        grid-gap: 2rem;
+    }
+    .search-header{
+        font-size: 20px;
+    } 
+}
+@media screen and (max-width: 660px){
+    padding: 30px 110px;
+}
+@media screen and (max-width: 475px){
+    padding: 30px 90px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 440px){
+    padding: 30px 70px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 400px){
+    padding: 30px 50px;
+    .news-card{
+        min-width: 350px;
+    }
+}
+@media screen and (max-width: 381px){
+    padding: 30px 10px;
+    .news-card{
+        width: 50px;
+        
+        img{
+            width: 20%;
+        }
+    }
+}
+@media screen and (max-width: 321px){
+    padding: 30px 10px;
+        img{
+            width: 10%;
+        }
 }
 `
 

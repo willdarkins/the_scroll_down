@@ -283,8 +283,6 @@ const SavedStyles = styled.div`
         }
     }
 }
-
-
 `
 
 export default SavedNews
