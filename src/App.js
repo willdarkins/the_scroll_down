@@ -67,7 +67,7 @@ function App() {
 
   useEffect(() => {
   getNewsRequest(searchValue);
-  })
+  },[searchValue])
 
   return (
     <ApolloProvider client={client}>
