@@ -26,7 +26,6 @@ const httpLink = createHttpLink({
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  console.log(token);
   // return the headers to the context so httpLink can read them
   return {
     headers: {
@@ -43,11 +42,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-<<<<<<< HEAD
-  // const [newsInput, setNewsInput] = useState('');
-  //const [savedNews, setSavedNews] = useState([]);
-=======
->>>>>>> c447d2cc8f49abf43b856c5d781bbb3b089407ff
   const [newsResults, setnewsResults] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 

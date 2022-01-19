@@ -1,32 +1,25 @@
 
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
 import { useMutation } from '@apollo/client';
 import { SAVE_STORY } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { saveStoryIds, getSavedStoriesIds } from '../utils/localStorage';
 
-<<<<<<< HEAD
-function SearchNews(props, {searchValue}) {
-    const { newsInput } = useContext(newsStoreContext);
-    const [searchedStories, setSearchedStories] = useState([]);
-    const [saveStory] = useMutation(SAVE_STORY);
-=======
 function SearchNews(props) {
-    // let data = [];
-    // if (results.data) {
-    //     data = results.data.Search || [];
-    // }
-    // console.log(data)
-    // const { newsInput } = useContext(newsStoreContext)
-    // const [searchedStories, setSearchedStories] = useState([]);
-    // const [saveStory] = useMutation(SAVE_STORY);
->>>>>>> c447d2cc8f49abf43b856c5d781bbb3b089407ff
+
+    const [saveStory] = useMutation(SAVE_STORY);
+
+    // create state to hold saved storyId values
+    const [savedStoryIds, setSavedStoriesIds] = useState(getSavedStoriesIds());
+
+    useEffect(() => {
+        return () => saveStoryIds(savedStoryIds);
+    });
 
     // create function to handle saving a story to our database
-    const handleSaveStory = async (storyId) => {
-        // find the story in `searchedStories` state by the matching storyId
-        const storyToSave = props.newsResults.find((story) => story._id === storyId);
+    const handleSaveStory = async (storyToSave) => {
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -35,11 +28,24 @@ function SearchNews(props) {
             console.log("no valid token");
             return false;
         }
+        const storyArray = [storyToSave];
+
+        const adjustedStoryData = storyArray.map((story) => ({
+            storyId: story._id,
+            source: story.clean_url,
+            title: story.title,
+            description: story.summary,
+            link: story.link,
+            image: story.media,
+            publishDate: story.published_date
+        }));
 
         try {
             const { data } = await saveStory({
-                variables: { storyData: { ...storyToSave } },
+                variables: { storyData: { ...adjustedStoryData[0] } },
             });
+            setSavedStoriesIds([...savedStoryIds, storyToSave._id]);
+            console.log(savedStoryIds);
             console.log(data);
         } catch (err) {
             console.error(err);
@@ -51,33 +57,37 @@ function SearchNews(props) {
             <div className='news-grid'>
                 {props.newsResults.map((news, i) => {
                     return (
-                            <motion.div key={news._id} className='news-card'
-                            initial={{opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50}}
-                            animate={{opacity: 1, translateX: 0, translateY: 0}}
-                            transition={{duration: .4, delay: i * .4}}
-                            >
-                                <div className='news-content'>
-                                    <img src={news.media} alt='news' />
-                                    <div className='descriptor'>
-                                        <h4 className='source'>
-                                            <span>{news.clean_url}</span>
-                                            <p>{news.published_date}</p>
-                                        </h4>
-                                    </div>
-                                    <div className='title-info'>
-                                        <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
-                                        <p>{news.summary}</p>
-                                        <button
-                                            className="learn-more"
-                                        >
-                                            <span className="circle" aria-hidden="true">
-                                                <span className="icon arrow"></span>
-                                            </span>
-                                            <span className="button-text">Save</span>
-                                        </button>
-                                    </div>
+                        <motion.div key={news._id} className='news-card'
+                            initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
+                            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+                            transition={{ duration: .4, delay: i * .4 }}
+                        >
+                            <div className='news-content'>
+                                <img src={news.media} alt='news' />
+                                <div className='descriptor'>
+                                    <h4 className='source'>
+                                        <span>{news.clean_url}</span>
+                                        <p>{news.published_date}</p>
+                                    </h4>
                                 </div>
-                            </motion.div>
+                                <div className='title-info'>
+                                    <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
+                                    <p>{news.summary}</p>
+                                    <button
+                                        disabled={savedStoryIds?.some(
+                                            (savedId) => savedId === news._id
+                                        )}
+                                        className="learn-more"
+                                        onClick={() => handleSaveStory(news)}
+                                    >
+                                        <span className="circle" aria-hidden="true">
+                                            <span className="icon arrow"></span>
+                                        </span>
+                                        <span className="button-text">Save</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
                     )
                 })}
             </div>

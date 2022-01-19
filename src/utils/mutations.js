@@ -30,7 +30,7 @@ export const SAVE_STORY = gql`
       _id
       email
       savedStories {
-        _id
+        storyId
         source
         image
         description
@@ -48,7 +48,7 @@ export const REMOVE_STORY = gql`
       _id
       email
       savedStories {
-        _id
+        storyId
         source
         image
         description

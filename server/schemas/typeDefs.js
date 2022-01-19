@@ -11,7 +11,7 @@ const typeDefs = gql`
   }
 
   type Story {
-    storyId: ID!
+    storyId: String!
     source: String
     title: String!
     description: String
@@ -26,7 +26,7 @@ const typeDefs = gql`
   }
 
   input StoryInput {
-    storyId: ID!
+    storyId: String!
     source: String
     title: String!
     description: String!
