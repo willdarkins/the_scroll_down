@@ -8,73 +8,33 @@ import Auth from '../utils/auth';
 import NewsPic_Sample from '../images/NewsPic_Sample.jpeg'
 
 function SearchNews(props, {searchValue}) {
-    // let data = [];
-    // if (results.data) {
-    //     data = results.data.Search || [];
-    // }
-    // console.log(data)
-    // const { newsInput } = useContext(newsStoreContext)
-    // const [searchedStories, setSearchedStories] = useState([]);
-    // const [saveStory] = useMutation(SAVE_STORY);
+    const { newsInput } = useContext(newsStoreContext)
+    const [searchedStories, setSearchedStories] = useState([]);
+    const [saveStory] = useMutation(SAVE_STORY);
 
-    // // create function to handle saving a story to our database
-    // const handleSaveStory = async (storyId) => {
-    //     // find the story in `searchedStories` state by the matching storyId
-    //     const storyToSave = searchedStories.find((story) => story.storyId === storyId);
+    // create function to handle saving a story to our database
+    const handleSaveStory = async (storyId) => {
+        // find the story in `searchedStories` state by the matching storyId
+        const storyToSave = props.newsResults.find((story) => story._id === storyId);
 
-    //     // get token
-    //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    //     if (!token) {
-    //         return false;
-    //     }
+        if (!token) {
+            console.log("no valid token");
+            return false;
+        }
 
-    //     try {
-    //         const { data } = await saveStory({
-    //             variables: { storyData: { ...storyToSave } },
-    //         });
-    //         console.log(data);
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
+        try {
+            const { data } = await saveStory({
+                variables: { storyData: { ...storyToSave } },
+            });
+            console.log(data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
-    // async function handleOnSubmit() {
-    //     setNewsInput(searchedNews)
-    //     if (!searchedNews) {
-    //         return false;
-    //     }
-
-    //     try {
-    //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${searchedNews}&lang=en`, {
-    //             "method": "GET",
-    //             "headers": {
-    //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
-    //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
-    //             }
-    //         })
-
-    //         if (!response.ok) {
-    //             throw new Error('something went wrong!');
-    //         }
-
-    //         const { articles } = await response.json();
-    //         console.log(articles);
-    //         const newsData = articles.map((story) => ({
-    //             storyId: story._id,
-    //             source: story.clean_url,
-    //             title: story.title,
-    //             description: story.summary,
-    //             link: story.link,
-    //             image: story.media,
-    //             publishDate: story.published_date
-    //         }));
-    //         setSearchedStories(newsData);
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    //     history.push(`/searchnews`);
-    // };
     return (
         <SavedStyles>
             <h1 className='search-header'>Results for: {searchValue}</h1>
@@ -95,6 +55,7 @@ function SearchNews(props, {searchValue}) {
                                     <p>{news.summary}</p>
                                     <button
                                         className="learn-more"
+                                        onClick={() => handleSaveStory(news._id)}
                                     >
                                         <span className="circle" aria-hidden="true">
                                             <span className="icon arrow"></span>
