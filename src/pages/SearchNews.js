@@ -77,25 +77,7 @@ function SearchNews(props) {
                                         </button>
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <div className='title-info'>
-                                <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
-                                    <p>{news.summary}</p>
-                                    <button
-                                        className="learn-more"
-                                        onClick={() => handleSaveStory(news._id)}
-                                    >
-                                        <span className="circle" aria-hidden="true">
-                                            <span className="icon arrow"></span>
-                                        </span>
-                                        <span className="button-text">Save</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-=======
                             </motion.div>
->>>>>>> c447d2cc8f49abf43b856c5d781bbb3b089407ff
                     )
                 })}
             </div>
