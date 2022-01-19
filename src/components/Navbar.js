@@ -2,56 +2,17 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components'
 import { NavLink, useHistory } from 'react-router-dom'
 import InputBase from '@mui/material/InputBase';
-import { newsStoreContext } from '../utils/store'
 import DarkModeSwitch from './DarkModeSwitch'
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar(props) {
-    // // // create state for holding returned news api data
     const [searchedNews, setSearchedNews] = useState(props.searchValue);
-    // const { newsInput, setnewsResults } = useContext(newsStoreContext)
-    // const [searchedStories, setSearchedStories] = useState([]);
-    // //   // create state for holding our search field data
     const history = useHistory();
- 
-
-
+    
     function handleOnSubmit() {
         props.setSearchValue(searchedNews)
-    //     if (!{ newsInput }) {
-    //         return false;
-    //     }
-
-    //     try {
-    //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
-    //             "method": "GET",
-    //             "headers": {
-    //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
-    //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
-    //             }
-    //         })
-    //         console.log(newsInput)
-
-    //         if (!response.ok) {
-    //             throw new Error('something went wrong!');
-    //         }
-
-    //         const { articles } = await response.json();
-    //         console.log(articles);
-    //         const newsData = articles.map((story) => ({
-    //             storyId: story._id,
-    //             source: story.clean_url,
-    //             title: story.title,
-    //             description: story.summary,
-    //             link: story.link,
-    //             image: story.media,
-    //             publishDate: story.published_date
-    //         }));
-    //         setnewsResults(newsData);
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
+   
         history.push(`/searchnews`);
     };
 

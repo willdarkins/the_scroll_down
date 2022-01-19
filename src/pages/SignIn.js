@@ -7,6 +7,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import LoginSuccessModal from '../components/LoginSuccessModal';
+import { motion } from 'framer-motion';
 
 function SignIn() {
   const headerStyle = { margin: '.3  1rem' }
@@ -42,8 +43,19 @@ function SignIn() {
     console.log("user is logged in: ", Auth.loggedIn());
   };
 
+  const signinPageTransition ={
+    initial: {opacity: 0, translateX: -50},
+    animate: {opacity: 1, translateX: 0},
+    transition: {duration: .8}
+}   
+
   return (
-    <>
+    <motion.div
+    variants={signinPageTransition}
+    initial = 'initial'
+    animate = 'animate'
+    transition ='transition'
+    >
     <SignInStyles>
       <Grid>
         <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
@@ -88,7 +100,7 @@ function SignIn() {
       </Grid>
     </SignInStyles>
     {loginSuccess  && <LoginSuccessModal setLoginSuccess = {setLoginSuccess} loginSuccess = {loginSuccess}/>} 
-    </>
+    </motion.div>
   )
 }
 

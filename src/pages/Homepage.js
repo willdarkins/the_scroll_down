@@ -2,23 +2,35 @@ import React from 'react'
 import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 function Homepage() {
-
+const homePageTransition ={
+    initial: {opacity: 0, translateX: -50},
+    animate: {opacity: 1, translateX: 0},
+    transition: {duration: .8}
+}   
     return (
-        <HomeStyles>
-            <div className='login-welcome'>
-                <div className='icon'>
-                    <img src={newspaperIcon} alt='newspaper' />
+        <motion.div
+        variants={homePageTransition}
+        initial = 'initial'
+        animate = 'animate'
+        transition ='transition'
+        >
+            <HomeStyles>
+                <div className='login-welcome'>
+                    <div className='icon'>
+                        <img src={newspaperIcon} alt='newspaper' />
+                    </div>
+                    <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
+                    <p>
+                        The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
+                        <br /><br />Sign up and get informed.
+                    </p>
+                    <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
                 </div>
-                <h1>Your News<span className='period'>.</span> Your Choice<span className='period'>.</span> Simple<span className='period'>.</span></h1>
-                <p>
-                    The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
-                    <br /><br />Sign up and get informed.
-                </p>
-                <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
-            </div>
-        </HomeStyles>
+            </HomeStyles>
+        </motion.div>
     )
 }
 
