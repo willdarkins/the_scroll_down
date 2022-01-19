@@ -6,12 +6,13 @@ import styled from 'styled-components';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import LoginSuccessModal from '../components/LoginSuccessModal';
 
 function SignIn() {
   const headerStyle = { margin: '.3  1rem' }
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login] = useMutation(LOGIN_USER);
-
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -27,6 +28,7 @@ function SignIn() {
 
       console.log(data);
       Auth.login(data.login.token);
+      setLoginSuccess(true);
     } catch (e) {
       console.error(e);
     }
@@ -41,6 +43,7 @@ function SignIn() {
   };
 
   return (
+    <>
     <SignInStyles>
       <Grid>
         <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
@@ -49,7 +52,7 @@ function SignIn() {
             <h2 style={headerStyle}>Sign In</h2>
             <Typography variant='caption'>Provide your credentials, log in, save stories and get informed</Typography>
           </Grid>
-          <form onSubmit={handleFormSubmit}>
+          <form>
             <Grid container spacing={2}>
               <Grid item></Grid>
               <Grid xs={12} item>
@@ -76,14 +79,16 @@ function SignIn() {
                   InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
               </Grid>
               <Grid xs={12} item>
-                <Button
-                  type='submit' color='primary' variant='contained' fullWidth>Sign In</Button>
+                <Button onClick = {handleFormSubmit}
+                 color='primary' variant='contained' fullWidth>Sign In</Button>
               </Grid>
             </Grid>
           </form>
         </Paper>
       </Grid>
     </SignInStyles>
+    {loginSuccess  && <LoginSuccessModal setLoginSuccess = {setLoginSuccess} loginSuccess = {loginSuccess}/>} 
+    </>
   )
 }
 

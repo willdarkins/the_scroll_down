@@ -20,7 +20,7 @@ import { setContext } from '@apollo/client/link/context';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -75,7 +75,6 @@ function App() {
         <>
           {/* <newsStoreContext.Provider value={{ newsInput, setNewsInput }, {newsResults, setnewsResults}}> */}
           <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
-          
           <Switch>
             <Route exact path='/' component={Homepage} />
             <Route exact path='/signin' component={SignIn} />
