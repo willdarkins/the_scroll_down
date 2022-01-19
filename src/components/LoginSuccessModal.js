@@ -24,7 +24,7 @@ function LoginSuccessModal(props) {
  const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => props.setLoginSuccess(false);
-console.log(props);
+
   return (
     <div>
       <Modal
@@ -36,8 +36,7 @@ console.log(props);
         BackdropComponent={Backdrop}
         BackdropProps={{timeout: 500}}
       >
-      
-          <Box sx={style}>
+          <Box sx={style}  xs={12} sm={6}>
               <img src={success} alt='Sign In icon' style={{display:'block', marginLeft: 'auto', marginRight: 'auto'}}/>
             <Typography id="transition-modal-title" sx={{ mt: 2 }} variant="h4" component="h2" style={{textAlign:'center'}}>
               You are Signed In!
