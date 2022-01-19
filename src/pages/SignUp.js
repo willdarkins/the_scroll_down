@@ -33,6 +33,7 @@ function SignUp() {
             });
             console.log(data);
             Auth.login(data.addUser.token);
+            setsignUpSuccess(true)
         } catch (err) {
             console.error(err);
         }
@@ -43,7 +44,6 @@ function SignUp() {
             email: '',
             password: '',
         });
-        <SignUpSuccess />
     };
     const headerStyle = { margin: '.3 1rem' }
     return (
