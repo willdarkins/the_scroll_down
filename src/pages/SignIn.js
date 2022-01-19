@@ -86,7 +86,6 @@ function SignIn() {
           </form>
         </Paper>
       </Grid>
-      
     </SignInStyles>
     {loginSuccess  && <LoginSuccessModal setLoginSuccess = {setLoginSuccess} loginSuccess = {loginSuccess}/>} 
     </>

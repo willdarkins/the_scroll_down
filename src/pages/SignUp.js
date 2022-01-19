@@ -1,4 +1,4 @@
-import React, { useState  } from 'react'
+import React, { useState } from 'react'
 import { Grid, Paper, Typography, TextField } from '@material-ui/core'
 import Button from '@mui/material/Button';
 import signupicon from '../images/signup_icon.png'
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import SignUpSuccess from '../components/SignUpSuccess'
 
 function SignUp() {
-
+    const [signUpSuccess, setsignUpSuccess] = useState(false);
     const [userFormData, setUserFormData] = useState({
         firstName: '',
         lastName: '',
@@ -17,7 +17,7 @@ function SignUp() {
         password: '',
     });
 
-    const [addUser ] = useMutation(ADD_USER);
+    const [addUser] = useMutation(ADD_USER);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -33,6 +33,7 @@ function SignUp() {
             });
             console.log(data);
             Auth.login(data.addUser.token);
+            setsignUpSuccess(true)
         } catch (err) {
             console.error(err);
         }
@@ -43,81 +44,83 @@ function SignUp() {
             email: '',
             password: '',
         });
-        <SignUpSuccess />
     };
     const headerStyle = { margin: '.3 1rem' }
     return (
-        <SignInStyles>
-        <Grid>
-            <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
-                <Grid align='center'>
-                    <img src={signupicon} alt='add user' />
-                    <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant='caption'>Fill out the form, become a member and start saving news you care about</Typography>
+        <>
+            <SignInStyles>
+                <Grid>
+                    <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
+                        <Grid align='center'>
+                            <img src={signupicon} alt='add user' />
+                            <h2 style={headerStyle}>Sign Up</h2>
+                            <Typography variant='caption'>Fill out the form, become a member and start saving news you care about</Typography>
+                        </Grid>
+                        <form onSubmit={handleFormSubmit}>
+                            <Grid container spacing={2}>
+                                <Grid item></Grid>
+                                <Grid xs={12} item>
+                                    <TextField
+                                        type='input'
+                                        label='First Name'
+                                        name="firstName"
+                                        placeholder='First Name'
+                                        variant='outlined'
+                                        onChange={handleInputChange}
+                                        value={userFormData.firstName}
+                                        fullWidth
+                                        required
+                                        InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
+                                </Grid>
+                                <Grid xs={12} item>
+                                    <TextField
+                                        type='input'
+                                        label='Last Name'
+                                        name="lastName"
+                                        placeholder='Last Name'
+                                        variant='outlined'
+                                        onChange={handleInputChange}
+                                        value={userFormData.lastName}
+                                        fullWidth
+                                        required
+                                        InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
+                                </Grid>
+                                <Grid xs={12} item>
+                                    <TextField
+                                        type='input'
+                                        label='Email'
+                                        placeholder='Email'
+                                        name="email"
+                                        variant='outlined'
+                                        onChange={handleInputChange}
+                                        value={userFormData.email}
+                                        fullWidth
+                                        required
+                                        InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
+                                </Grid>
+                                <Grid xs={12} item>
+                                    <TextField
+                                        type='input'
+                                        label='Password'
+                                        placeholder='Password'
+                                        name="password"
+                                        variant='outlined'
+                                        onChange={handleInputChange}
+                                        value={userFormData.password}
+                                        fullWidth
+                                        required
+                                        InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
+                                </Grid>
+                                <Grid xs={12} item>
+                                    <Button type='submit' color='primary' variant='contained' fullWidth>Sign Up!</Button>
+                                </Grid>
+                            </Grid>
+                        </form>
+                    </Paper>
                 </Grid>
-                <form onSubmit={handleFormSubmit}>
-                    <Grid container spacing={2}>
-                        <Grid item></Grid>
-                        <Grid xs={12} item>
-                            <TextField
-                                type='input'
-                                label='First Name'
-                                name="firstName"
-                                placeholder='First Name'
-                                variant='outlined'
-                                onChange={handleInputChange}
-                                value={userFormData.firstName}
-                                fullWidth
-                                required
-                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
-                        </Grid>
-                        <Grid xs={12} item>
-                            <TextField
-                                type='input'
-                                label='Last Name'
-                                name="lastName"
-                                placeholder='Last Name'
-                                variant='outlined'
-                                onChange={handleInputChange}
-                                value={userFormData.lastName}
-                                fullWidth
-                                required
-                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
-                        </Grid>
-                        <Grid xs={12} item>
-                            <TextField
-                                type='input'
-                                label='Email'
-                                placeholder='Email'
-                                name="email"
-                                variant='outlined'
-                                onChange={handleInputChange}
-                                value={userFormData.email}
-                                fullWidth
-                                required
-                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
-                        </Grid>
-                        <Grid xs={12} item>
-                            <TextField
-                                type='input'
-                                label='Password'
-                                placeholder='Password'
-                                name="password"
-                                variant='outlined'
-                                onChange={handleInputChange}
-                                value={userFormData.password}
-                                fullWidth
-                                required
-                                InputLabelProps={{ style: { color: 'var(--font-dark)' }, }} />
-                        </Grid>
-                        <Grid xs={12} item>
-                            <Button type='submit' color='primary' variant='contained' fullWidth>Sign Up!</Button>
-                        </Grid>
-                    </Grid>
-                </form>
-            </Paper>
-        </Grid>
-        </SignInStyles>
+            </SignInStyles>
+            {signUpSuccess && <SignUpSuccess setsignUpSuccess={setsignUpSuccess} signUpSuccess={signUpSuccess} />}
+        </>
     )
 }
 
