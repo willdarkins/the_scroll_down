@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp'
 import SavedNews from './pages/SavedNews'
 import SearchNews from './pages/SearchNews';
 import { newsStoreContext } from './utils/store'
+import debounce from 'lodash.debounce';
 
 import {
   ApolloClient,
@@ -65,7 +66,7 @@ function App() {
   }
 
   useEffect(() => {
-   return () => getNewsRequest(searchValue);
+  getNewsRequest(searchValue);
   })
 
   return (

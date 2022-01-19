@@ -170,7 +170,7 @@ const SavedStyles = styled.div`
                 h1{
                     font-size: 20px;
                     letter-spacing: -.5px;
-                    line-height: 1.3rem;
+                    line-height: 1.4rem;
                     padding: 20px 0;
                     font-weight: 700;
                     text-decoration: underline;
