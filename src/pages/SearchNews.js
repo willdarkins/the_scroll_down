@@ -5,10 +5,9 @@ import { newsStoreContext } from '../utils/store'
 import { useMutation } from '@apollo/client';
 import { SAVE_STORY } from '../utils/mutations';
 import Auth from '../utils/auth';
-import NewsPic_Sample from '../images/NewsPic_Sample.jpeg'
 
 function SearchNews(props, {searchValue}) {
-    const { newsInput } = useContext(newsStoreContext)
+    const { newsInput } = useContext(newsStoreContext);
     const [searchedStories, setSearchedStories] = useState([]);
     const [saveStory] = useMutation(SAVE_STORY);
 
