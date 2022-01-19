@@ -1,11 +1,9 @@
 
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import { newsStoreContext } from '../utils/store'
 import { useMutation } from '@apollo/client';
 import { SAVE_STORY } from '../utils/mutations';
 import Auth from '../utils/auth';
-import NewsPic_Sample from '../images/NewsPic_Sample.jpeg'
 
 function SearchNews(props, {searchValue}) {
     // let data = [];
@@ -76,8 +74,7 @@ function SearchNews(props, {searchValue}) {
     //     history.push(`/searchnews`);
     // };
     return (
-        <SavedStyles>
-            <h1 className='search-header'>Results for: {searchValue}</h1>
+        <SearchStyles>
             <div className='news-grid'>
                 {props.newsResults.map((news) => {
                     return (
@@ -107,11 +104,11 @@ function SearchNews(props, {searchValue}) {
                     )
                 })}
             </div>
-        </SavedStyles>
+        </SearchStyles>
     )
 }
 
-const SavedStyles = styled.div`
+const SearchStyles = styled.div`
     padding: 30px 150px;
     .search-header{
         letter-spacing: -1px;
