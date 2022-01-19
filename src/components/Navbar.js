@@ -1,65 +1,59 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components'
 import { NavLink, useHistory } from 'react-router-dom'
 import InputBase from '@mui/material/InputBase';
 import { newsStoreContext } from '../utils/store'
-import { useState } from 'react';
 import DarkModeSwitch from './DarkModeSwitch'
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import debounce from 'lodash.debounce';
 
 function Navbar(props) {
     // // // create state for holding returned news api data
-    // const [searchedNews, setSearchedNews] = useState('');
+    const [searchedNews, setSearchedNews] = useState(props.searchValue);
     // const { newsInput, setnewsResults } = useContext(newsStoreContext)
     // const [searchedStories, setSearchedStories] = useState([]);
     // //   // create state for holding our search field data
     const history = useHistory();
+ 
 
 
-    async function handleOnSubmit() {
+    function handleOnSubmit() {
+        props.setSearchValue(searchedNews)
+    //     if (!{ newsInput }) {
+    //         return false;
+    //     }
 
-        //     if (!{ newsInput }) {
-        //         return false;
-        //     }
+    //     try {
+    //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
+    //             "method": "GET",
+    //             "headers": {
+    //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
+    //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
+    //             }
+    //         })
+    //         console.log(newsInput)
 
-        //     try {
-        //         const response = await fetch(`https://free-news.p.rapidapi.com/v1/search?q=${newsInput}&lang=en`, {
-        //             "method": "GET",
-        //             "headers": {
-        //                 "x-rapidapi-host": "free-news.p.rapidapi.com",
-        //                 "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
-        //             }
-        //         })
-        //         console.log(newsInput)
+    //         if (!response.ok) {
+    //             throw new Error('something went wrong!');
+    //         }
 
-        //         if (!response.ok) {
-        //             throw new Error('something went wrong!');
-        //         }
-
-        //         const { articles } = await response.json();
-        //         console.log(articles);
-        //         const newsData = articles.map((story) => ({
-        //             storyId: story._id,
-        //             source: story.clean_url,
-        //             title: story.title,
-        //             description: story.summary,
-        //             link: story.link,
-        //             image: story.media,
-        //             publishDate: story.published_date
-        //         }));
-        //         setnewsResults(newsData);
-        //     } catch (err) {
-        //         console.error(err);
-        //     }
+    //         const { articles } = await response.json();
+    //         console.log(articles);
+    //         const newsData = articles.map((story) => ({
+    //             storyId: story._id,
+    //             source: story.clean_url,
+    //             title: story.title,
+    //             description: story.summary,
+    //             link: story.link,
+    //             image: story.media,
+    //             publishDate: story.published_date
+    //         }));
+    //         setnewsResults(newsData);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
         history.push(`/searchnews`);
     };
-   const changeHandler = (event) => {console.log('hi there!'); props.setSearchValue(event.target.value)}
-   
-   
-    const debouncedChangeHandler = 
-        (e) => {console.log('OWWWW!!! THAT SMARTS!!!'); setTimeout(changeHandler(e), 10000)};
 
     return (
         <NavBarStyles>
@@ -70,12 +64,13 @@ function Navbar(props) {
                     <InputBase
                         placeholder="Search for News"
                         inputProps={{ 'aria-label': 'search for news' }}
-                        value={props.searchValue}
-                        onChange={debouncedChangeHandler}
+                        value={searchedNews}
+                        onChange={(event)=> setSearchedNews(event.target.value)}
                     />
-                    <button onClick={handleOnSubmit}>Search</button>
-                    <DarkModeSwitch className='dark-mode' />
-
+                        <button onClick={handleOnSubmit}
+                         >Search</button>
+                        <DarkModeSwitch className='dark-mode'/>
+                    
                     <label htmlFor='check' className='bar'>
                         <FontAwesomeIcon id='bars' className='fa fa-bars' icon={faBars} size='2x' color='white' style={{ marginLeft: '1rem', marginTop: '.2rem' }} />
                     </label>
