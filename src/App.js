@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar'
 import Homepage from './pages/Homepage'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import SavedNews from './pages/SavedNews'
 import SearchNews from './pages/SearchNews';
-import { newsStoreContext } from './utils/store'
-import debounce from 'lodash.debounce';
 
 import {
   ApolloClient,
@@ -44,8 +43,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  // const [newsInput, setNewsInput] = useState('');
-  // //const [savedNews, setSavedNews] = useState([]);
   const [newsResults, setnewsResults] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
@@ -57,7 +54,7 @@ function App() {
         "x-rapidapi-key": "47a0d92aa0mshe43772b8385d985p151404jsnb86a00526e7a"
       }
     })
-    
+
     const responseJson = await response.json();
     console.log(responseJson)
     if (responseJson.articles) {
@@ -66,23 +63,23 @@ function App() {
   }
 
   useEffect(() => {
-  getNewsRequest(searchValue);
-  },[searchValue])
+    getNewsRequest(searchValue);
+  }, [searchValue])
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <newsStoreContext.Provider value={{ newsInput, setNewsInput }, {newsResults, setnewsResults}}> */}
           <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
-          <Switch>
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/signin' component={SignIn} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/savednews' component={SavedNews} />
-            <SearchNews newsResults={newsResults} searchValue={searchValue}/>
-          </Switch>
-          {/* </newsStoreContext.Provider> */}
+          <AnimatePresence exitBeforeEnter>
+            <Switch>
+              <Route exact path='/' component={Homepage} />
+              <Route exact path='/signin' component={SignIn} />
+              <Route exact path='/signup' component={SignUp} />
+              <Route exact path='/savednews' component={SavedNews} />
+              <SearchNews newsResults={newsResults} searchValue={searchValue} />
+            </Switch>
+          </AnimatePresence>
         </>
       </Router>
     </ApolloProvider>
