@@ -7,6 +7,7 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import styled from 'styled-components';
 import SignUpSuccess from '../components/SignUpSuccess'
+import { motion } from 'framer-motion';
 
 function SignUp() {
     const [signUpSuccess, setsignUpSuccess] = useState(false);
@@ -46,8 +47,18 @@ function SignUp() {
         });
     };
     const headerStyle = { margin: '.3 1rem' }
+    const signupPageTransition ={
+        initial: {opacity: 0, translateX: -50},
+        animate: {opacity: 1, translateX: 0},
+        transition: {duration: .8}
+    }  
     return (
-        <>
+        <motion.div
+        variants={signupPageTransition}
+        initial = 'initial'
+        animate = 'animate'
+        transition ='transition'
+        >
             <SignInStyles>
                 <Grid>
                     <Paper elevation={10} style={{ maxWidth: 535, margin: '4.5rem auto' }} className={'paper'}>
@@ -120,7 +131,7 @@ function SignUp() {
                 </Grid>
             </SignInStyles>
             {signUpSuccess && <SignUpSuccess setsignUpSuccess={setsignUpSuccess} signUpSuccess={signUpSuccess} />}
-        </>
+        </motion.div>
     )
 }
 

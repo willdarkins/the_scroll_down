@@ -49,6 +49,37 @@ const GlobalStyles = createGlobalStyle`
         transform: translateX(0);
         z-index: 20;
     }
+    .title-info a{
+    text-decoration:none;
+    display:block;
+    line-height:1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+          to right,
+          var(--green),
+          var(--green) 50%,
+          var(--font-dark) 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    transition: all 0.3s ease-in-out;
+}
+.title-info a:before{
+    display:block;
+    content:'';
+    width:0;
+    height:3px;
+    bottom:5px;
+    left:0;
+    bottom:-3px;
+    z-index:0;
+    position:absolute;
+    background:var(--green);
+    transition: all 0.3s ease-in-out;
+}
+.title-info a:hover{
+    background-position: 0%;
+}
 
 `
 
