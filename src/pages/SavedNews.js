@@ -1,79 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
-import NewsPicSample from '../images/NewsPic_Sample.jpeg'
 
 function SavedNews() {
     return (
         <SavedStyles>
-            <h1 className='search-header'>Search Term Will Go Here</h1>
             <div className='news-grid'>
-                <div className='news-card'>
-                    <div className='news-content'>
-                        <img src={NewsPicSample} alt='news' />
-                        <div className='descriptor'>
-                            <h4 className='source'>
-                                <span>New York Times</span>
-                                <p>1.11.2021</p>
-                            </h4>
+                {/* {userData.savedStories.map((story) => { */}
+                    return (
+                        <div key={story._id} className='news-card'>
+                            <div className='news-content'>
+                                <img src={story.media} alt='news' />
+                                <div className='descriptor'>
+                                    <h4 className='source'>
+                                        <span>{story.clean_url}</span>
+                                        <p>{story.published_date}</p>
+                                    </h4>
+                                </div>
+                                <div className='title-info'>
+                                <a target='_blank' rel='noopener noreferrer' href={story.link}><h1>{story.title}</h1></a>
+                                <p>{story.summary}</p>
+                                    <button className="learn-more">
+                                        <span className="circle" aria-hidden="true">
+                                            <span className="icon arrow"></span>
+                                        </span>
+                                        <span className="button-text">Delete</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div className='title-info'>
-                            <h1>Example News Title</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                                facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                            <button className="learn-more">
-                                <span className="circle" aria-hidden="true">
-                                    <span className="icon arrow"></span>
-                                </span>
-                                <span className="button-text">Delete</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='news-card'>
-                    <img src={NewsPicSample} alt='news' />
-                    <div className='descriptor'>
-                        <h4 className='source'>
-                            <span>New York Times</span>
-                            <p>1.11.2021</p>
-                        </h4>
-                    </div>
-                    <div className='title-info'>
-                        <h1>Example News Title</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button className="learn-more">
-                            <span className="circle" aria-hidden="true">
-                                <span className="icon arrow"></span>
-                            </span>
-                            <span className="button-text">Delete</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div className='news-card'>
-                    <img src={NewsPicSample} alt='news' />
-                    <div className='descriptor'>
-                        <h4 className='source'>
-                            <span>New York Times</span>
-                            <p>1.11.2021</p>
-                        </h4>
-                    </div>
-                    <div className='title-info'>
-                        <h1>Example News Title</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec posuere mauris sit amet leo elementum tempus. Cras lorem neque,
-                            facilisis in dolor sed, facilisis vestibulum erat. Nunc a ipsum dolor.</p>
-                        <button className="learn-more">
-                            <span className="circle" aria-hidden="true">
-                                <span className="icon arrow"></span>
-                            </span>
-                            <span className="button-text">Delete</span>
-                        </button>
-                    </div>
-                </div>
+                    )
+                {/* })} */}
             </div>
         </SavedStyles>
     )
