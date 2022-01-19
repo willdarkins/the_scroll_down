@@ -8,7 +8,7 @@ export const QUERY_ME = gql`
       firstName
       lastName
       savedStories {
-        _id
+        storyId
         source
         image
         description
@@ -28,7 +28,7 @@ export const QUERY_USERS = gql`
       firstName
       lastName
       savedStories {
-        _id
+        storyId
         source
         image
         description
