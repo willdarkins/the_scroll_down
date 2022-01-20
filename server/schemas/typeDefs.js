@@ -26,7 +26,7 @@ const typeDefs = gql`
   }
 
   input StoryInput {
-    storyId: ID!
+    storyId: String!
     source: String
     title: String!
     description: String!
@@ -44,7 +44,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!, firstName: String!, lastName: String!): Auth
     saveStory(storyData: StoryInput!): User
-    removeStory(_id: ID!): User
+    removeStory(storyId: ID!): User
   }
 `;
 

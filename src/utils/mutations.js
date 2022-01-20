@@ -30,7 +30,7 @@ export const SAVE_STORY = gql`
       _id
       email
       savedStories {
-        _id
+        storyId
         source
         image
         description
@@ -43,18 +43,12 @@ export const SAVE_STORY = gql`
 `;
 
 export const REMOVE_STORY = gql`
-  mutation removeStory($_id: ID!) {
-    removeBook(_id: $_id) {
-      _id
+  mutation removeStory($storyId: ID!) {
+    removeStory(storyId: $storyId) {
       email
       savedStories {
-        _id
-        source
-        image
-        description
+        storyId
         title
-        link
-        publishDate
       }
     }
   }
