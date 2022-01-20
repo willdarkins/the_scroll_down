@@ -40,7 +40,7 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install": "cd server && npm i && cd ../client",
     "develop": "concurrently \"cd server && npm run watch\" \"npm start\"",
     "seed": "cd server && npm run seed",
     "buildClient": "cd client && npm run build"
