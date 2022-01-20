@@ -40,6 +40,11 @@ function SavedNews() {
 
     return (
         <SavedStyles>
+            <h1 className='search-header'>
+            {userData.savedStories.length
+            ? `Viewing ${userData.savedStories.length} saved ${userData.savedStories.length === 1 ? 'story' : 'stories'}:`
+            : 'No Saved News Stories to Display 🤷‍♂️'}
+            </h1>
             <div className='news-grid'>
                 {userData.savedStories.map((story, i) => {
                     return (
