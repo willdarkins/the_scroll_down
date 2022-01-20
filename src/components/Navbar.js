@@ -14,8 +14,8 @@ function Navbar(props) {
 
     function handleOnSubmit() {
         props.setSearchValue(searchedNews)
-
         history.push(`/searchnews`);
+        setSearchedNews('')
     };
 
     return (

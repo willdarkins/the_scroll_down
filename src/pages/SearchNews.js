@@ -9,6 +9,8 @@ import { saveStoryIds, getSavedStoriesIds } from '../utils/localStorage';
 
 function SearchNews(props) {
 
+    const [searchedNews, setSearchedNews] = useState(props.searchValue);
+
     const [saveStory] = useMutation(SAVE_STORY);
 
     // create state to hold saved storyId values
@@ -54,10 +56,11 @@ function SearchNews(props) {
 
     return (
         <SearchStyles>
+            <h1 className='search-header'>Results for: "{props.searchValue}"</h1>
             <div className='news-grid'>
                 {props.newsResults.map((news, i) => {
                     return (
-                        <motion.div key={news._id} className='news-card'
+                        <motion.div onChange={()=> setSearchedNews(searchedNews)} key={news._id} className='news-card'
                             initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
                             animate={{ opacity: 1, translateX: 0, translateY: 0 }}
                             transition={{ duration: .4, delay: i * .4 }}
