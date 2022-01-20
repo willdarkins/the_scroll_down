@@ -39,11 +39,11 @@
     "concurrently": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node server/server.js",
+    "buildClient": "cd client && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "install": "cd server && npm i",
+    "install": "cd server && npm i && ../client",
     "develop": "concurrently \"cd server && npm run watch\" \"npm start\"",
     "seed": "cd server && node seeders/seeds.js"
   },
