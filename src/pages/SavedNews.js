@@ -208,6 +208,7 @@ const SavedStyles = styled.div`
   }
   &:hover {
     .circle {
+      transition: all .3s ease-in-out ;
       width: 100%;
       .icon {
         &.arrow {
