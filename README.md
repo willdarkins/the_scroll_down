@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# The Scroll Down
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Description 
 
-### `npm start`
+The Scroll Down is a simple platform that gives the user the opportunity to be informed by searching news across multiple news sites. The Scroll Down also allows the user to save any article they come across for later purpose. With a simple and intuitive design, The Scroll Down is a valuable tool for anyone looking to start learning about the world around them, or people who already follow the news, but want to expand their scope.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The deployed application can be found **[HERE](https://)**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [Badges](#badges)
+* [Features](#features)
+* [Usage](#usage)
+* [Installation](#installation)
+* [Run Locally](#runlocally)
+* [Screenshots](#screenshots)
+* [Demo](#demo)
+* [Feedback](#feedback)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
+* [License](#license)
+## Badges
+ 
+*To complete the project the following programming languages, frameworks, platforms and libraries were used:*
 
-### `npm run build`
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Light/dark mode toggle
+- SignUp/SignIn/SignOut
+- Reactive
+- Mobile Friendly
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- User can search up any specific topic or keyword, and they are presented with multiple results.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- All results will be linked off to the articles and their appropriate site.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- User can sign up, which enables the ability to save articles that they can retroactively access.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- In the Github repository, copy the SSH key link to clone onto your local device
+- Open the project in your code editor of choice and enter the following command in console:
+```bash
+  npm i
+```
+    
+## Run Locally
 
-### Analyzing the Bundle Size
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  git clone https://github.com/willdarkins/the_scroll_down
+```
 
-### Making a Progressive Web App
+Go to the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  cd the_scroll_down
+```
 
-### Advanced Configuration
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+  npm i
+```
 
-### Deployment
+Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+  npm start
+```
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Demo
+
+
+
+
+## Feedback
+
+If you have any feedback, questions regarding the development of this project, or any other specific questions that come to mind, feel free to contact us via email or Github.
+
+Will Darkins: - [Email](mailto:willdarkins@gmail.com) [Github](https://github.com/willdarkins)
+
+Aaron Robinett - [Email](mailto:aaronrobinett@gmail.com) [Github](https://github.com/aaronRobinett)
+
+Octavio Politron - [Email](mailto:octavio.poiltron@gmail.com) [Github](https://github.com/Octavio258)
+
+
+
+Which one do you think looks better? 
+
+ Email: [octavio.politron@gmail.com](mailto:octavio.politron@gmail.com)
+ 
+[Email](mailto:octavio.politron@gmail.com)
+
+
+## Authors
+
+- [@Will_Darkins](https://github.com/willdarkins)
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://.com/)
+
+
+- [@Aaron_Robinett](https://github.com/aaronRobinett)
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://.com/)
+
+- [@Octavio_Politron](https://github.com/Octavio258)
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://.com/)
+
+## Acknowledgements
+
+ - [Awesome README](https://github.com/matiassingers/awesome-readme) Solid references for making a good README
+
+ - [Shields.io](shields.io) for the great badges
+ 
+## License
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
