@@ -9,6 +9,8 @@ import { saveStoryIds, getSavedStoriesIds } from '../utils/localStorage';
 
 function SearchNews(props) {
 
+    const [searchedNews, setSearchedNews] = useState(props.searchValue);
+
     const [saveStory] = useMutation(SAVE_STORY);
 
     // create state to hold saved storyId values
@@ -54,10 +56,11 @@ function SearchNews(props) {
 
     return (
         <SearchStyles>
+            <h1 className='search-header'>Results for: "{props.searchValue}"</h1>
             <div className='news-grid'>
                 {props.newsResults.map((news, i) => {
                     return (
-                        <motion.div key={news._id} className='news-card'
+                        <motion.div onChange={()=> setSearchedNews(searchedNews)} key={news._id} className='news-card'
                             initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
                             animate={{ opacity: 1, translateX: 0, translateY: 0 }}
                             transition={{ duration: .4, delay: i * .4 }}
@@ -73,6 +76,7 @@ function SearchNews(props) {
                                 <div className='title-info'>
                                     <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
                                     <p>{news.summary}</p>
+                                    {Auth.loggedIn() && (
                                     <button
                                         disabled={savedStoryIds?.some(
                                             (savedId) => savedId === news._id
@@ -83,8 +87,13 @@ function SearchNews(props) {
                                         <span className="circle" aria-hidden="true">
                                             <span className="icon arrow"></span>
                                         </span>
-                                        <span className="button-text">Save</span>
+                                        <span className="button-text">
+                                        {savedStoryIds?.some((savedId) => savedId === news._id)
+                                        ? '✅ Saved'
+                                        : 'Save'}
+                                            </span>
                                     </button>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
@@ -181,7 +190,7 @@ const SearchStyles = styled.div`
                     width: 12rem;
                     height: auto;
                 .circle {
-                    transition: all, 0.45s, cubic-bezier(0.65,0,.076,1);
+                    transition: all, 1.5s, cubic-bezier(0.65,0,.076,1);
                     position: relative;
                     display: block;
                     margin: 0;
@@ -190,14 +199,14 @@ const SearchStyles = styled.div`
                     background: var(--blue);
                     border-radius: 1.625rem;
                 .icon {
-                    transition: (all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                    transition: (all, 1.5s, cubic-bezier(0.65,0,.076,1));
                     position: absolute;
                     top: 0;
                     bottom: 0;
                     margin: auto;
                     background: white;
                 &.arrow {
-                    transition: (all, 1s, cubic-bezier(0.65,0,.076,1));
+                    transition: (all, 1.5s, cubic-bezier(0.65,0,.076,1));
                     left: 0.625rem;
                     width: 1.125rem;
                     height: 0.125rem;
@@ -217,14 +226,14 @@ const SearchStyles = styled.div`
         }
     }
     .button-text {
-      transition:(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+      transition:(all, 1.5s, cubic-bezier(0.65,0,.076,1));
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       padding: 0.75rem 0;
-      margin: 0 0 0 1.85rem;
+      margin: 0 0 0 3.2rem;
       color: var(--blue);
       font-weight: 700;
       line-height: 1.6;
@@ -234,6 +243,7 @@ const SearchStyles = styled.div`
   }
   &:hover {
     .circle {
+      transition: all .3s ease-in-out ;
       width: 100%;
       .icon {
         &.arrow {
