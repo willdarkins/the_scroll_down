@@ -83,7 +83,11 @@ function SearchNews(props) {
                                         <span className="circle" aria-hidden="true">
                                             <span className="icon arrow"></span>
                                         </span>
-                                        <span className="button-text">Save</span>
+                                        <span className="button-text">
+                                        {savedStoryIds?.some((savedId) => savedId === news._id)
+                                        ? 'Added to Saved'
+                                        : 'Save'}
+                                            </span>
                                     </button>
                                 </div>
                             </div>
