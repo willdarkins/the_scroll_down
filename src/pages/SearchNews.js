@@ -73,6 +73,7 @@ function SearchNews(props) {
                                 <div className='title-info'>
                                     <a target='_blank' rel='noopener noreferrer' href={news.link}><h1>{news.title}</h1></a>
                                     <p>{news.summary}</p>
+                                    {Auth.loggedIn() && (
                                     <button
                                         disabled={savedStoryIds?.some(
                                             (savedId) => savedId === news._id
@@ -89,6 +90,7 @@ function SearchNews(props) {
                                         : 'Save'}
                                             </span>
                                     </button>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
