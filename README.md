@@ -95,7 +95,11 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Home Page](Home_Page.PNG)
+![SignIn Page](SignIn.PNG)
+![SignUp Page](SignUp.PNG)
+![Results Page](Results.PNG)
+![Saved News Page](Saved_News.PNG)
 
 
 ## Demo
@@ -114,12 +118,6 @@ Aaron Robinett - [Email](mailto:aaronrobinett@gmail.com) [Github](https://github
 Octavio Politron - [Email](mailto:octavio.poiltron@gmail.com) [Github](https://github.com/Octavio258)
 
 
-
-Which one do you think looks better? 
-
- Email: [octavio.politron@gmail.com](mailto:octavio.politron@gmail.com)
- 
-[Email](mailto:octavio.politron@gmail.com)
 
 
 ## Authors
