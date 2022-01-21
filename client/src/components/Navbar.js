@@ -6,14 +6,16 @@ import DarkModeSwitch from './DarkModeSwitch'
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Auth from '../utils/auth'
+
 function Navbar(props) {
     const [searchedNews, setSearchedNews] = useState(props.searchValue);
     const history = useHistory();
-    
+
     function handleOnSubmit() {
         props.setSearchValue(searchedNews)
-   
         history.push(`/searchnews`);
+        setSearchedNews('')
     };
 
     return (
@@ -26,21 +28,29 @@ function Navbar(props) {
                         placeholder="Search for News"
                         inputProps={{ 'aria-label': 'search for news' }}
                         value={searchedNews}
-                        onChange={(event)=> setSearchedNews(event.target.value)}
+                        onChange={(event) => setSearchedNews(event.target.value)}
                     />
-                        <button onClick={handleOnSubmit}
-                         >Search</button>
-                        <DarkModeSwitch className='dark-mode'/>
-                    
+                    <button onClick={handleOnSubmit}
+                    >Search</button>
+                    <DarkModeSwitch className='dark-mode' />
+
                     <label htmlFor='check' className='bar'>
                         <FontAwesomeIcon id='bars' className='fa fa-bars' icon={faBars} size='2x' color='white' style={{ marginLeft: '1rem', marginTop: '.2rem' }} />
                     </label>
                 </div>
                 <ol className='container'>
                     <li><NavLink exact to='/' activeClassName='current'>Home</NavLink></li>
-                    <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
-                    <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
-                    <li><NavLink exact to='/savednews' activeClassName='current'>Saved News</NavLink></li>
+                    {Auth.loggedIn() ? (
+                        <>
+                            <li><NavLink exact to='/savednews' activeClassName='current'>Saved News</NavLink></li>
+                            <li onClick={Auth.logout}><a>Sign Out</a></li>
+                        </>
+                    ) : (
+                        <>
+                            <li><NavLink exact to='/signin' activeClassName='current'>Sign In</NavLink></li>
+                            <li><NavLink exact to='/signup' activeClassName='current'>Sign Up</NavLink></li>
+                        </>
+                    )}
                 </ol>
             </div>
         </NavBarStyles>

@@ -76,7 +76,7 @@ function App() {
               <Route exact path='/signin' component={SignIn} />
               <Route exact path='/signup' component={SignUp} />
               <Route exact path='/savednews' component={SavedNews} />
-              <SearchNews newsResults={newsResults} searchValue={searchValue} />
+              <SearchNews newsResults={newsResults} searchValue={searchValue} setSearchValue={setSearchValue} />
             </Switch>
           </AnimatePresence>
         </>

@@ -3,19 +3,20 @@ import styled from 'styled-components'
 import newspaperIcon from '../images/newspaper_3.png'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion';
+import Auth from '../utils/auth';
 
 function Homepage() {
-const homePageTransition ={
-    initial: {opacity: 0, translateX: -50},
-    animate: {opacity: 1, translateX: 0},
-    transition: {duration: .8}
-}   
+    const homePageTransition = {
+        initial: { opacity: 0, translateX: -50 },
+        animate: { opacity: 1, translateX: 0 },
+        transition: { duration: .8 }
+    }
     return (
         <motion.div
-        variants={homePageTransition}
-        initial = 'initial'
-        animate = 'animate'
-        transition ='transition'
+            variants={homePageTransition}
+            initial='initial'
+            animate='animate'
+            transition='transition'
         >
             <HomeStyles>
                 <div className='login-welcome'>
@@ -27,7 +28,11 @@ const homePageTransition ={
                         The Scroll Down is a simple platform allowing you to save news stories, and get the facts.
                         <br /><br />Sign up and get informed.
                     </p>
-                    <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
+                    {Auth.loggedIn() ? (
+                        <button style={{visibility: 'hidden'}}><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
+                    ) : (
+                        <button><NavLink exact to='/signup' activeClassName='active-class'>Sign Up!</NavLink></button>
+                    )}
                 </div>
             </HomeStyles>
         </motion.div>
