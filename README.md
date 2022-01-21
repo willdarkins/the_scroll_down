@@ -95,11 +95,19 @@ Start the server
 
 ## Screenshots
 
-![scrollDown](https://user-images.githubusercontent.com/84754257/150556771-fde548c9-9a9d-4482-9447-314249f8f96a.jpg)
+
+![Home Page](media/Home_Page.PNG)
+![SignIn Page](media/SignIn.PNG)
+![SignUp Page](media/SignUp.PNG)
+![Results Page](media/Results.PNG)
+![Saved News Page](media/Saved_News.PNG)
+
 
 
 
 ## Demo
+
+![Video demo of how the scroll down works](media/The_Scroll_Down.gif)
 
 
 
@@ -116,19 +124,16 @@ Octavio Politron - [Email](mailto:octavio.poiltron@gmail.com) [Github](https://g
 
 
 
-Which one do you think looks better? 
-
- Email: [octavio.politron@gmail.com](mailto:octavio.politron@gmail.com)
- 
-[Email](mailto:octavio.politron@gmail.com)
-
 
 ## Authors
 
 - [@Will_Darkins](https://github.com/willdarkins)
 
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://willdarkins.herokuapp.com/about)
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://willdarkins.herokuapp.com/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://.com/)
+
 
 
 - [@Aaron_Robinett](https://github.com/aaronRobinett)
