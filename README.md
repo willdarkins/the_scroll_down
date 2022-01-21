@@ -95,11 +95,11 @@ Start the server
 
 ## Screenshots
 
-![Home Page](Home_Page.PNG)
-![SignIn Page](SignIn.PNG)
-![SignUp Page](SignUp.PNG)
-![Results Page](Results.PNG)
-![Saved News Page](Saved_News.PNG)
+![Home Page](media/Home_Page.PNG)
+![SignIn Page](media/SignIn.PNG)
+![SignUp Page](media/SignUp.PNG)
+![Results Page](media/Results.PNG)
+![Saved News Page](media/Saved_News.PNG)
 
 
 ## Demo
