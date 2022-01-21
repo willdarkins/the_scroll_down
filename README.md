@@ -95,11 +95,14 @@ Start the server
 
 ## Screenshots
 
+
 ![Home Page](media/Home_Page.PNG)
 ![SignIn Page](media/SignIn.PNG)
 ![SignUp Page](media/SignUp.PNG)
 ![Results Page](media/Results.PNG)
 ![Saved News Page](media/Saved_News.PNG)
+
+
 
 
 ## Demo
@@ -126,8 +129,11 @@ Octavio Politron - [Email](mailto:octavio.poiltron@gmail.com) [Github](https://g
 
 - [@Will_Darkins](https://github.com/willdarkins)
 
+
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://willdarkins.herokuapp.com/about)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://.com/)
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://willdarkins.herokuapp.com/)
+
 
 
 - [@Aaron_Robinett](https://github.com/aaronRobinett)
