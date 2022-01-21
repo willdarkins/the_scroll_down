@@ -6,7 +6,7 @@
 
 The Scroll Down is a simple platform that gives the user the opportunity to be informed by searching news across multiple news sites. The Scroll Down also allows the user to save any article they come across for later purpose. With a simple and intuitive design, The Scroll Down is a valuable tool for anyone looking to start learning about the world around them, or people who already follow the news, but want to expand their scope.  
 
-The deployed application can be found **[HERE](https://)**
+The deployed application can be found **[HERE](https://the-scroll-down.herokuapp.com/)**
 
 
 ## Table of Contents
